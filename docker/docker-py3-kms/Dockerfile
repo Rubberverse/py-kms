@@ -50,12 +50,13 @@ RUN addgroup \
         --uid ${CONT_UID} \
         --ingroup ${CONT_USER} \
         --disabled-password \
-        ${CONT_USER}
+        ${CONT_USER} \
+    && rm -rf /var/cache/apt
 
 COPY docker/start.py /app/scripts/start.py
 COPY docker/healthcheck.py /app/scripts/healthcheck.py
 
-RUN chmod 555 /app/scripts/start.py /app/scripts/healthcheck.py
+RUN chmod 550 /app/scripts/start.py /app/scripts/healthcheck.py
 
 VOLUME /app/db
 
