@@ -1,12 +1,65 @@
 # Readme
-![repo-size](https://img.shields.io/github/repo-size/Py-KMS-Organization/py-kms)
-![open-issues](https://img.shields.io/github/issues/Py-KMS-Organization/py-kms)
-![last-commit](https://img.shields.io/github/last-commit/Py-KMS-Organization/py-kms/master)
-![docker-pulls](https://img.shields.io/docker/pulls/pykmsorg/py-kms)
-![read-the-docs](https://img.shields.io/readthedocs/py-kms)
+
+![repo-size](https://img.shields.io/github/repo-size/Rubberverse/py-kms)
+![last-commit](https://img.shields.io/github/last-commit/Rubberverse/py-kms/next)
+
 ***
 
-_Keep in mind that this project is not intended for production use. Feel free to use it to test your own systems or maybe even learn something from the protocol structure. :)_
+This is a personal fork for my own use case (LAN) so stuff may be changed to my own liking, or fixed up if I can figure out something.
+
+You're not supposed to use this software in an official, company setting as that would be violation of Microsoft license agreement. However, feel free to use this if you need something for personal use, maybe in your home, maybe for your friends.
+
+## Fork changes
+
+![Dark Theme](https://github.com/user-attachments/assets/5d82c78c-57c8-408a-a0ec-465ec50d1702)
+![Dark Theme 2](https://github.com/user-attachments/assets/0daa72bb-bb74-4370-a188-5c6c1762abd3)
+
+- Templates lightly translated to Polish and default theme changed to Dark theme
+- Updated `bulma.min.css` to v1.0.2
+- Remove hyperlink to `License` from main page
+- Runs as rootless user by default with UID and GID of `1001`
+- Removed `entrypoint.py`
+- Dockerfile updated to use `alpine:edge` and `python 3.12`, removed `bash` and `shadow` from base image, purge `/var/cache/apt` to free up space after updates and installation.
+- Update package versions in `requirements.txt`
+- Use `/app` instead of `/home/py-kms`
+- Activates following versions of Windows Server:
+	- [Fork] Windows Server 2025 [Azure Core, Datacenter Azure Edition, Datacenter, Standard)]
+	- [Fork] Windows Server 2022 [Azure Core, Datacenter Azure Edition, Datacenter, Standard, Datacenter (Semi-Annual Channel), Standard (Semi-Annual Channel)]
+	- Windows Server 2019 [Azure Core, Essentials, Datacenter, Standard, ARM64, Datacenter (Semi-Annual Channel), Standard (Semi-Annual Channel)]
+	- Windows Server 2016 [Azure Core, Essentials, Datacenter, Standard, ARM64, Datacenter (Semi-Annual Channel), Standard (Semi-Annual Channel), Cloud Storage]
+	- Windows Server 2012 R2 [Essentials, Datacenter, Standard, Cloud Storage]
+	- Windows Server 2012 [Essentials, Datacenter, Standard, MultiPoint Premium, MultiPoint Standard]
+	- Windows Server 2008 R2 A [MultiPoint Server 2010, Web, HPC Edition]
+	- Windows Server 2008 R2 B [Standard, Enterprise]
+	- Windows Server 2008 R2 C [Datacenter, Enterprise for Itanium]
+	- Windows Server 2008 A [Web, Computer Cluster]
+	- Windows Server 2008 B [Standard, Standard without Hyper-V, Enterprise, Enterprise without Hyper-V]
+	- Windows Server 2008 C [Datacenter, Datacenter without Hyper-V, Enterprise for Itanium]
+	- Windows Server Next [Preview Datacenter, Preview Standard, Preview Web, Preview ServerHI]
+	- Windows 10 ServerRdsh VL [Enterprise multi-session]
+- Activates following Volume Licensing versions of Windows:
+	- Windows Vista
+	- Windows 7
+	- Windows 8
+	- Windows 8.1
+	- Windows 10
+	- Windows 10 Insider Preview
+	- Windows 11
+	- Windows 11 Insider Preview
+- Activates following Volume Licensing versions of Office:
+	- Office 2013
+	- Office 2013 (Pre-Release)
+	- Office 2016 (+ Preview)
+	- Office 2019 (+ Preview)
+	- [Fork] Office LTSC 2021 (+ Preview)
+	- [Fork] Office LTSC 2024 (+ Preview)
+
+
+---
+
+# Original fork information
+
+Here you can see the project information.
 
 ## History
 _py-kms_ is a port of node-kms created by [cyrozap](http://forums.mydigitallife.info/members/183074-markedsword), which is a port of either the C#, C++, or .NET implementations of KMS Emulator. The original version was written by [CODYQX4](http://forums.mydigitallife.info/members/89933-CODYQX4) and is derived from the reverse-engineered code of Microsoft's official KMS.
