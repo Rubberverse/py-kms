@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" class="theme-dark">
 <head>
-    <meta charset="UTF-8" class="theme-dark">
-    <title>py-kms {% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <title>RVS_KMS {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bulma.min.css') }}">
     <style>
         #content {
@@ -29,7 +29,7 @@
         {% if path != '/' %}
         <div class="block backtohome">
             <a class="button is-normal is-responsive" href="/">
-                Back to home
+                Wróć do strony głównej
             </a>
         </div>
         {% endif %}
@@ -38,11 +38,10 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>py-kms</strong> is online since <span class="convert_timestamp">{{ start_time }}</span>.
-                This instance was accessed {{ get_serve_count() }} times. View this softwares license <a href="/license">here</a>.
-                {% if version_info %}
-                <br>This instance is running version "{{ version_info['hash'] }}" from branch "{{ version_info['branch'] }}" of py-kms.
-                {% endif %}
+                <strong>RVS_KMS (LAN)</strong> jest dostępny od <span class="convert_timestamp">{{ start_time }}</span>.
+                Ta strona została wyświetlona {{ get_serve_count() }} razy.
+                <br>Ten serwer używa wersji rvs_kms-next bazowanej na py-kms-organization/py-kms:python3-next.
+                <br>Stylesheet: github.com/jgthms/bulma (bulma.min.css)
             </p>
         </div>
     </footer>
