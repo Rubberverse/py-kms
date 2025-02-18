@@ -12,7 +12,7 @@ th {
 {% if error %}
 <article class="message is-danger">
     <div class="message-header">
-        Whoops! Something went wrong...
+        Wystąpił nieznany błąd, spróbuj odświeżyć stronę...
     </div>
     <div class="message-body">
         {{ error }}
@@ -22,25 +22,25 @@ th {
 <nav class="level">
     <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Clients</p>
+            <p class="heading">Klienci</p>
             <p class="title">{{ count_clients }}</p>
         </div>
     </div>
     <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Windows</p>
+            <p class="heading">Systemy Windows</p>
             <p class="title">{{ count_clients_windows }}</p>
         </div>
     </div>
     <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Office</p>
+            <p class="heading">Pakiety Office</p>
             <p class="title">{{ count_clients_office }}</p>
         </div>
     </div>
     <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Products</p>
+            <p class="heading">Produkty</p>
             <p class="title"><a href="/products">{{ count_projects }}</a></p>
         </div>
     </div>
@@ -52,14 +52,14 @@ th {
 <table class="table is-striped is-hoverable is-fullwidth">
     <thead>
         <tr>
-            <th>Client ID</th>
-            <th>Machine Name</th>
-            <th>Application ID</th>
+            <th>ID Klienta</th>
+            <th>Nazwa Maszyny</th>
+            <th>ID Aplikacji</th>
             <th><abbr title="Stock Keeping Unit">SKU</abbr> ID</th>
-            <th>License Status</th>
-            <th>Last Seen</th>
+            <th>Status Licencji</th>
+            <th>Ostatnio Odświeżony</th>
             <th>KMS <abbr title="Enhanced Privacy ID">EPID</abbr></th>
-            <th>Seen Count</th>
+            <th>Ostatnio Widziany</th>
         </tr>
     </thead>
     <tbody>
@@ -92,10 +92,10 @@ th {
 {% else %}
 <article class="message is-warning">
     <div class="message-header">
-        <p>Whoops?</p>
+        <p>Coś wygląda nie tak?</p>
     </div>
     <div class="message-body">
-        This page seems to be empty, because no clients are available. Try to use the server with a compartible client to add it to the database.
+        Ta strona wygląda na pustą, być może dlatego że nie ma żadnych klientów? Spróbuj użyć serwer z kompatybilnym klientem aby go dodać do bazy danych.
     </div>
 </article>
 {% endif %}
