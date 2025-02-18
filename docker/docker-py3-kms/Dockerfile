@@ -1,55 +1,65 @@
 # Switch to the target image
-FROM alpine:3.15
+FROM alpine:edge
 
-ARG BUILD_COMMIT=unknown
-ARG BUILD_BRANCH=unknown
+ARG BUILD_COMMIT=unknown \
+    BUILD_BRANCH=unknown
 
-ENV IP ::
-ENV DUALSTACK 1
-ENV PORT 1688
-ENV EPID ""
-ENV LCID 1033
-ENV CLIENT_COUNT 26
-ENV ACTIVATION_INTERVAL 120
-ENV RENEWAL_INTERVAL 10080
-ENV HWID RANDOM
-ENV LOGLEVEL INFO
-ENV LOGFILE STDOUT
-ENV LOGSIZE ""
-ENV TZ America/Chicago
-ENV WEBUI 1
+ARG CONT_UID=1001
+ARG CONT_USER=kms
 
-COPY docker/docker-py3-kms/requirements.txt /home/py-kms/
-RUN apk add --no-cache --update \
-  bash \
-  python3 \
-  py3-pip \
-  sqlite-libs \
-  ca-certificates \
-  tzdata \
-  shadow \
-  && pip3 install --no-cache-dir -r /home/py-kms/requirements.txt \
-  && mkdir /db/ \
-  && adduser -S py-kms -G users -s /bin/bash \
-  && chown py-kms:users /home/py-kms \
-  # Fix undefined timezone, in case the user did not mount the /etc/localtime
-  && ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+ENV IP=127.0.0.1 \
+    DUALSTACK=0 \
+    PORT=1688 \
+    EPID="" \
+    LCID=1033 \
+    CLIENT_COUNT=25 \
+    ACTIVATION_INTERVAL=120 \
+    RENEWAL_INTERVAL=10080 \
+    HWID=RANDOM \
+    LOGLEVEL=INFO \
+    LOGFILE=STDOUT \
+    LOGSIZE="" \
+    TZ=Europe/Warsaw \
+    WEBUI=1
 
-COPY py-kms /home/py-kms/
-COPY docker/entrypoint.py /usr/bin/entrypoint.py
-COPY docker/healthcheck.py /usr/bin/healthcheck.py
-COPY docker/start.py /usr/bin/start.py
-RUN chmod 555 /usr/bin/entrypoint.py /usr/bin/healthcheck.py /usr/bin/start.py
+RUN mkdir -p /app
+COPY docker/docker-py3-kms/requirements.txt /app
+COPY py-kms /app
 
-# Web-interface specifics
-COPY LICENSE /LICENSE
-RUN echo "$BUILD_COMMIT" > /VERSION && echo "$BUILD_BRANCH" >> /VERSION
+WORKDIR /app
 
-WORKDIR /home/py-kms
+RUN apk update \
+    && apk upgrade \
+    && apk add \
+        tzdata \
+        python3 \
+        py3-pip \
+        sqlite-libs \
+        ca-certificates \
+    # TODO: Use venv instead of... this. 
+    && pip3 install --no-cache-dir -r /app/requirements.txt --break-system-packages \
+    && mkdir -p /app/db /app/scripts
 
-EXPOSE ${PORT}/tcp
-EXPOSE 8080/tcp
+RUN addgroup \
+    --system \
+    --gid ${CONT_UID} \
+    ${CONT_USER} \
+    && adduser \
+        --home "/app" \
+        --shell "/bin/sh" \
+        --uid ${CONT_UID} \
+        --ingroup ${CONT_USER} \
+        --disabled-password \
+        ${CONT_USER}
 
-HEALTHCHECK --interval=5m --timeout=10s --start-period=10s --retries=3 CMD /usr/bin/python3 /usr/bin/healthcheck.py
+COPY docker/start.py /app/scripts/start.py
+COPY docker/healthcheck.py /app/scripts/healthcheck.py
 
-ENTRYPOINT [ "/usr/bin/python3", "-u", "/usr/bin/entrypoint.py" ]
+RUN chmod 555 /app/scripts/start.py /app/scripts/healthcheck.py
+
+VOLUME /app/db
+
+RUN chown -Rf ${CONT_USER}:${CONT_USER} /app
+
+USER ${CONT_USER}
+ENTRYPOINT /usr/bin/python3 -u /app/scripts/start.py
