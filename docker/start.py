@@ -20,7 +20,7 @@ argumentVariableMapping = {
   '-e': 'EPID'
 }
 
-db_path = os.path.join(os.sep, 'home', 'py-kms', 'db', 'pykms_database.db')
+db_path = os.path.join(os.sep, 'app', 'db', 'pykms_database.db')
 log_file = os.environ.get('LOGFILE', 'STDOUT')
 listen_ip = os.environ.get('IP', '::').split()
 listen_port = os.environ.get('PORT', '1688')
