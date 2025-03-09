@@ -54,6 +54,111 @@ You're not supposed to use this software in an official, company setting as that
 	- [Fork] Office LTSC 2021 (+ Preview)
 	- [Fork] Office LTSC 2024 (+ Preview)
 
+## Network Ports
+
+> [!IMPORTANT]
+> Use `IP` environmental variable to enable IPv6 support if you require it. To do so, you set the environmental variable to following value `IP=::`. Otherwise, it will listen only on IPv4.
+
+Following ports are used inside of the container:
+
+- 1688/tcp for KMS server
+- 8080/tcp for Web Server (Overview)
+
+If you need different web ports, use `--publish` in podman run command, `PublishPort=` in Quadlet, or `Ports:` in Docker Compose. Relevant docs for Podman: [podman run](https://docs.podman.io/en/latest/markdown/podman-run.1.html#publish-p-ip-hostport-containerport-protocol), [systemd-unit](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html#container-units-container), [Docker Compose](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/#use-docker-compose)
+
+```bash
+podman run -d localhost/py-kms:latest -p 127.0.0.1:9012:8080/tcp
+```
+
+Quadlet configurations can be seen on my personal GitHub repository [here](https://github.com/MrRubberDucky/rubberverse.xyz/blob/main/LOCAL/Utilities/PYKMS.container)
+
+## Volumes
+
+You should mount the database file for data persistence. It's read by the Web Server component. **Make sure that directory permissions match!**
+
+The directory you need to mount is `/app/db` and you can do so in following manner. You will need to create a directory inside of your users' home folder called `AppData/2_PERSIST/PYKMS` that is owned by following UID and GID: `1001:1001`
+
+```bash
+mkdir -p ~/AppData/2_PERSIST/PYKMS
+```
+
+### Quadlet
+
+> [!WARNING]
+> Quadlet functionality is only available since Podman version 5.2+. This feature is not present on Docker.
+
+In case you want to let the container process fix up the permissions by itself, you can pass `U` flag to the `Volume=` argument. This is easiest way to solve permission problems with rootless containers.
+
+```conf
+Volume=${HOME}/AppData/2_PERSIST/PYKMS:/app/db:rw,Z,U
+```
+
+Here's a full config, based on my home one. Fully ready for production! :) Put it inside `~/.config/systemd/containers/PYKMS.container`, reload systemd - `systemctl --user daemon-reload` and then start it - `systemctl --user start PYKMS`
+
+```cfg
+[Unit]
+Description=KMS - Key Managment Service, used for Windows & Office activations
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
+[Container]
+# Base
+Image=localhost/py-kms:latest
+ContainerName=kms
+Volume=${HOME}/AppData/2_PERSIST/PYKMS:/app/db:rw,Z
+# Needed for private IPC
+Tmpfs=/dev/shm
+# Networks
+Network=pasta:--ipv4-only
+# KMS port
+PublishPort=0.0.0.0:1688:1688/tcp
+# Dashboard port
+PublishPort=127.0.0.1:9012:8080/tcp
+```
+
+### Docker-Compose
+
+To bind mount inside the directory, you can do like so:
+
+```yaml
+volumes:
+    - ${HOME}/AppData/2_PERSIST/PYKMS:/app/db:rw,Z
+```
+
+Not providing full compose.yaml as I haven't touched it in well over a year. I'm a heavy Quadlet user right now.
+
+## Building the image locally
+
+Clone this fork, it will be inside of py-kms directory
+
+```bash
+git clone https://github.com/Rubberverse/py-kms.git -b next
+```
+
+Change your directory
+
+```bash
+cd py-kms
+```
+
+Move `Dockerfile` from `py-kms/docker/docker-py3-kms/Dockerfile` to root of your current directory
+
+```bash
+mv py-kms/docker/docker-py3-kms/Dockerfile .
+```
+
+Start build with following command, replace `podman` with `docker` if you're using docker
+
+```bash
+podman build -f Dockerfile -t localhost/py-kms:latest
+```
+
+If all goes well, it should build successfully. Now you can reference it in your Quadlet or Docker Compose and deploy it! Just use `localhost/py-kms:latest` as your Image registry entry. `Image=localhost/py-kms:latest`
+
 
 ---
 
