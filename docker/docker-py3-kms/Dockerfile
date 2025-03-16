@@ -1,5 +1,5 @@
 # Switch to the target image
-FROM alpine:edge
+FROM mirror.gcr.io/alpine:edge
 
 ARG BUILD_COMMIT=unknown \
     BUILD_BRANCH=unknown
@@ -7,7 +7,7 @@ ARG BUILD_COMMIT=unknown \
 ARG CONT_UID=1001
 ARG CONT_USER=kms
 
-ENV IP=127.0.0.1 \
+ENV IP=0.0.0.0 \
     DUALSTACK=0 \
     PORT=1688 \
     EPID="" \
@@ -23,22 +23,24 @@ ENV IP=127.0.0.1 \
     WEBUI=1
 
 RUN mkdir -p /app
-COPY docker/docker-py3-kms/requirements.txt /app
-COPY py-kms /app
+COPY ./requirements.txt /app
+COPY --chmod=755 py-kms /app
 
 WORKDIR /app
 
 RUN apk update \
     && apk upgrade \
     && apk add \
+        curl \
         tzdata \
-        python3 \
-        py3-pip \
         sqlite-libs \
         ca-certificates \
-    # TODO: Use venv instead of... this. 
+    && apk add --repository=https://mirror.2degrees.nz/alpine/v3.21/main \
+        python3 \
+        py3-pip \
     && pip3 install --no-cache-dir -r /app/requirements.txt --break-system-packages \
-    && mkdir -p /app/db /app/scripts
+    && mkdir -p /app/db /app/scripts \
+    && rm -rf /var/cache/*
 
 RUN addgroup \
     --system \
@@ -53,10 +55,8 @@ RUN addgroup \
         ${CONT_USER} \
     && rm -rf /var/cache/apt
 
-COPY docker/start.py /app/scripts/start.py
-COPY docker/healthcheck.py /app/scripts/healthcheck.py
-
-RUN chmod 550 /app/scripts/start.py /app/scripts/healthcheck.py
+COPY --chmod=755 docker/start.py /app/scripts/start.py
+COPY --chmod=755 docker/healthcheck.py /app/scripts/healthcheck.py
 
 VOLUME /app/db
 
