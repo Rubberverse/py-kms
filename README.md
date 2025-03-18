@@ -1,4 +1,4 @@
-# 🦆 Rubberverse LAN
+# 🦆 Rubberverse Containers
 
 Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger changes eventually compared to this, working on decluttering everything. (Not a python programmer though so that's out of the question)
 
@@ -7,64 +7,95 @@ Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger
 > [!WARNING]
 > Only use this software in a private setting. Never open it up to internet, unless you wanna get striked down by Microsoft. Using this software in official, company setting is a violation of Microsoft license agreement.
 
-## 🍴 Fork changes
-
-Eventually front-end will look better, for now I just did it extra lazy way aka. checking out documentation and changing few variables.
+## 🍴 Fork changes (so far)
 
 ![Dark Theme](https://github.com/user-attachments/assets/5d82c78c-57c8-408a-a0ec-465ec50d1702)
 
-- Default Dark Theme for Overview
-- Overview was translated to Polish (it's rough but it's enough to understand)
-- Updated `bulma.min.css` to `v1.0.2` + added attribution (MIT license)
+Eventually the front-end will be better. I'm just seeing what it would be worthwhile switching to.
+
+**Front-end changes**
+
+- Dark theme for Overview
+- Partial Polish translation for Overview (default for now, eventually multi-lang will be a thing... maybe.)
+- Updated `bulma.min.css` to `v1.0.2` and added attibution (MIT license)
 - Removed hyperlink to `License` from Overview
-- Containers runs as a rootless user by default, UID and GID of `1001:1001`
-- Removed `entrypoint.py` #TODO: Replace healtcheck.py and start.py
-- Removed `bash` and `shadow` from base image, purge `/var/cache/apk` after apk pulling to free up space on the final image
-- Dockerfile updated to use `alpine:edge` and `python 3.12.9-r0`
-- Container uses `/app` instead of `/home/py-kms`
-- Update package versions in `requirements.txt` #TODO: fix Module tzlocal or pytz not available
-- Updated KMSDatabase.xml
 
-## What products can it activate?
+**Container changes**
 
-⭐ - Fork addition
+- Removed `entrypoint.py`
+- Removed `bash` and `shadow`, purge `/var/cahe/apk` after apk installation process to free up space in the final image
+- Dockerfile uses `alpine:edge` with latest packages and `python 3.12.9-r0`, tidy up overall structure.
+- Change default directory from `/home/py-kms` to `/app`
+- Update package pinnings in `requirements.txt`
 
-Activates following versions of **Windows Server**
+**pykms changes**
 
-- [⭐] Windows Server 2025 [Azure Core, Datacenter Azure Edition, Datacenter, Standard)]
-- [⭐] Windows Server 2022 [Azure Core, Datacenter Azure Edition, Datacenter, Standard, Datacenter (Semi-Annual Channel), Standard (Semi-Annual Channel)]
-- Windows Server 2019 [Azure Core, Essentials, Datacenter, Standard, ARM64, Datacenter (Semi-Annual Channel), Standard (Semi-Annual Channel)]
-- Windows Server 2016 [Azure Core, Essentials, Datacenter, Standard, ARM64, Datacenter (Semi-Annual Channel), Standard (Semi-Annual Channel), Cloud Storage]
-- Windows Server 2012 R2 [Essentials, Datacenter, Standard, Cloud Storage]
-- Windows Server 2012 [Essentials, Datacenter, Standard, MultiPoint Premium, MultiPoint Standard]
-- Windows Server 2008 R2 A [MultiPoint Server 2010, Web, HPC Edition]
-- Windows Server 2008 R2 B [Standard, Enterprise]
-- Windows Server 2008 R2 C [Datacenter, Enterprise for Itanium]
-- Windows Server 2008 A [Web, Computer Cluster]
-- Windows Server 2008 B [Standard, Standard without Hyper-V, Enterprise, Enterprise without Hyper-V]
-- Windows Server 2008 C [Datacenter, Datacenter without Hyper-V, Enterprise for Itanium]
-- Windows Server Next [Preview Datacenter, Preview Standard, Preview Web, Preview ServerHI]
-- Windows 10 ServerRdsh VL [Enterprise multi-session]
+- WebUI: Don't dump logs into the overview in case of failure, instead log them to console with a message to go check it.
+- Database: Updated `KMSDatabase.xml` with latest License Manager 5.1 changes, declutterified it to enhance py-kms performance and give it better reliability long-term (v2.0)
 
-Activates following Volume Licensing versions of **Windows**
+## 🔨 Planned changes
 
-- Windows Vista
-- Windows 7
-- Windows 8
-- Windows 8.1
-- Windows 10
-- Windows 10 Insider Preview
-- Windows 11
-- Windows 11 Insider Preview
+ToDo list if you will.
 
-Activates following Volume Licensing versions of **Office**
+- [ ] Replace `start.py` and `healtcheck.py` with `sh` scripts
+- [ ] Simplify environmental variables
+- [ ] Better descriptions for database entries
+- [ ] Make front-end better
 
-- Office 2013
-- Office 2013 (Pre-Release)
+## 🐳 Image tags
+
+
+
+## 🤔 What products can it activate?
+
+Activates following versions of **Windows Server**, only **Volume Licensing** SKUs are compatible with this!
+
+^: Semi-Annual channels included for Datacenter and Standard
+
+| Windows Server Version    | Editions                                                                                                                             |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Windows Server 2025^      | Azure Core, Datacenter Azure Edition, Datacenter Standard                                                                            |
+| Windows Server 2022^      | Azure Core, Datacenter Azure Edition, Datacenter, Standard                                                                           |
+| Windows Server 2016       | Azure Core, Essentials, Datacenter, Standard, ARM64, Cloud Storage                                                                   |
+| Windows Server 2012 R2    | Essentials, Datacenter, Standard, Cloud Storage                                                                                      |
+| Windows Server 2012       | Essentials, Datacenter, Standard, MultiPoint Premium, MultiPoint Standard                                                            |
+| Windows Server 2008 R2 A  | MultiPoint Server 2010, Web, HPC Edition                                                                                             |
+| Windows Server 2008 R2 B  | Standard, Enterprise                                                                                                                 |
+| Windows Server 2008 R2 C  | Datacenter, Enterprise for Itanium                                                                                                   |
+| Windows Server 2008 A     | Web, Computer Cluster                                                                                                                |
+| Windows Server 2008 B     | Standard, Enterprise                                                                                                                 |
+| Windows Server 2008 C     | Datacenter, Datacenter without Hyper-V, Enterprise for Itanium                                                                       |
+| Windows Server Next       | Preview Datacenter, Preview Standard, Preview Web, Preview ServerHI                                                                  |
+| Windows 10 ServerRdsh VL  | Enterprise multi-session                                                                                                             |
+
+Activates following Volume Licensing versions of **Windows**, only **Volume Licensing** SKUs are compatible with this!
+
+Enterprise G, Enterprise G N is known as China Government, Enterprise multi-session is known as ServerRdsh VL
+
+| Windows Version             | Editions                                                                                                                                                                             |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Windows 11                 | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021-2024, S (Lean), Remote Server  |
+| Windows 11 Insider Preview | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021-2024 |
+| Windows 10                 | Enterprise 2015 LTSB, Enterprise 2015 LTSB N, Enterprise 2016 LTSB, Enterprise 2016 LTSB N, Enterprise LTSC 2019/2021, Enterprise LTSC 2019/2021 N Education, Enterprise, Enterprise G, Enterprise G N, Pro, Pro Education, Pro Workstation, IoT Enterprise LTSC 2021-2024, S (Lean), Remote Server |
+| Windows 10 Insider Preview  | Enterprise, EnterpriseN, EnterpriseS, EnterpriseSN, Education, EducationN, Professional, ProfessionalN                                                                               |
+| Windows 8.1                 | Enterprise, Enterprise N, Professional, Professional N, Embedded Industry Automotive, Embedded Industry Enterprise, Embedded Industry Professional, Core Connected, Core Connected N, Core Connected Country Specific, Core Connected Single Language |
+| Windows 8                   | Enterprise, Enterprise N, Professional, Professional N, Embedded Industry Enterprise, Embedded Industry Professional, Embedded POSReady [Beta] |
+| Windows 7                   | Enterprise, Enterprise E, Enterprise N, Professional, Professional E, Professional N, ThinPC, Embedded POSReady, Embedded Standard |
+| Windows Vista               | Business, Business N, Enterprise, Enterprise N |
+
+Activates following Volume Licensing versions of **Office**, only **Volume Licensing** SKUs are compatible with this!
+
+| Office Version              | Items                                                                                                                                                                                |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Office 2010                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, InfoPath, Mondo 1, Mondo 2, OneNote, OutLook, Project Pro, Project Standard, Publisher, Small Business Basics, Visio Premium, Visio Pro, Visio Standard |
+| Office 2013                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard                    |
+| Office 2013 (Pre-Release)   | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard            |
+
+
 - Office 2016 (+ Preview)
 - Office 2019 (+ Preview [⭐])
 - [⭐] Office LTSC 2021 (+ Preview)
-- [⭐] Office LTSC 2024 (+ Preview)
+- [⭐] Office LTSC 2024 (+ Preview) 
 
 ## Network Ports
 
