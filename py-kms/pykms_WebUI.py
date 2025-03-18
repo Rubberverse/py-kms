@@ -1,4 +1,4 @@
-import os, uuid, datetime
+import os, uuid, datetime, logging
 from flask import Flask, render_template
 from pykms_Sql import sql_get_all
 from pykms_DB2Dict import kmsDB2Dict
@@ -99,7 +99,8 @@ def readyz():
     try:
         _env_check()
     except Exception as e:
-        return f'Whooops! {e}', 503
+        logging.error(f'An error has occured on /readyz endpoint: {e}')
+        return f'Internal error, check console for details.', 503
     if (datetime.datetime.now() - app.jinja_env.globals['start_time']).seconds > 10: # Wait 10 seconds before accepting requests
         return 'OK', 200
     else:
@@ -111,7 +112,8 @@ def livez():
         _env_check()
         return 'OK', 200 # There are no checks for liveness, so we just return OK
     except Exception as e:
-        return f'Whooops! {e}', 503
+        logging.error(f'An error has occured on /livez endpoint: {e}')
+        return f'Internal error, check console for details.', 503
 
 @app.route('/license')
 def license():
