@@ -1,8 +1,8 @@
 # Switch to the target image
-FROM mirror.gcr.io/alpine:edge
+FROM public.ecr.aws/docker/library/alpine:edge
 
 ARG BUILD_COMMIT=unknown \
-    BUILD_BRANCH=unknown
+    BUILD_BRANCH=next
 
 ARG CONT_UID=1001
 ARG CONT_USER=kms
@@ -55,8 +55,8 @@ RUN addgroup \
         ${CONT_USER} \
     && rm -rf /var/cache/apt
 
-COPY --chmod=755 docker/start.py /app/scripts/start.py
-COPY --chmod=755 docker/healthcheck.py /app/scripts/healthcheck.py
+COPY --chmod=755 ./start.py /app/scripts/start.py
+COPY --chmod=755 ./healthcheck.py /app/scripts/healthcheck.py
 
 VOLUME /app/db
 
