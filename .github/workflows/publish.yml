@@ -1,0 +1,47 @@
+name: Build the Alpine image and push to GHCR
+
+on:
+  push:
+    tags:
+      - 'v*'
+    paths-ignore:
+      - '**.md'
+      - '.github/workflows/**.yaml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and push to ghcr
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        working-directory: .
+        shell: bash
+    steps:
+      - name: Free up worker space
+        run: sudo rm -rf "$AGENT_TOOLSDIRECTORY"; sudo rm -rf /usr/share/dotnet /usr/local/lib/android; sudo apt-get update; sudo apt-get remove -y '^dotnet-.*'; sudo apt-get autoremove -y; sudo apt-get clean
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: QEMU
+        uses: docker/setup-qemu-action@v3.2.0
+        with:
+          platforms: arm64
+      - name: Build & Push Alpine frps rootless Image to DH
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: qor-pykms
+          registry: ghcr.io
+          dockerfile: Dockerfile
+          buildArgs: BUILD_COMMIT=${{ github.sha }},BUILD_BRANCH=${{ github.ref_name }}
+          multiPlatform: false
+          enableBuildKit: true
+          tags: next-${{ github.sha }}, latest-alpine
+          platform: linux/amd64
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+      - name: Cancel on failure
+        uses: andymckay/cancel-action@0.4
+        if: failure()
