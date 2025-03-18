@@ -26,7 +26,7 @@ jobs:
       - name: Build & Push Alpine frps rootless Image to DH
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: qor-pykms
+          image: qor-kms
           registry: ghcr.io
           dockerfile: Dockerfile
           buildArgs: BUILD_COMMIT=${{ github.sha }},BUILD_BRANCH=${{ github.ref_name }}
