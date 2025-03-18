@@ -19,16 +19,10 @@ jobs:
         working-directory: .
         shell: bash
     steps:
-      - name: Free up worker space
-        run: sudo rm -rf "$AGENT_TOOLSDIRECTORY"; sudo rm -rf /usr/share/dotnet /usr/local/lib/android; sudo apt-get update; sudo apt-get remove -y '^dotnet-.*'; sudo apt-get autoremove -y; sudo apt-get clean
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: '0'
-      - name: QEMU
-        uses: docker/setup-qemu-action@v3.2.0
-        with:
-          platforms: arm64
       - name: Build & Push Alpine frps rootless Image to DH
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
