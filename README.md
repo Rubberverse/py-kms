@@ -44,15 +44,75 @@ ToDo list if you will.
 
 ## 🐳 Image tags
 
+There are container images built and hosted under packages here, you can pull them if you want.
 
+## How to manually update KmsDataBase.xml
+
+Generally, all you need to add a new entry to the list is:
+
+1. Install a valid copy of a Volume Licensed SKU product (Windows or Office)
+2. Read it's ActivationID and SkuID off relevant pkeyconfig (Beware, there are a lot of Skus! You will need to pick the correct Volume one. You can also have some fun and add Lab Sku too while at it since those entries are always present in pkeyconfig)
+3. Add those values to `KmsDataBase.xml`
+
+For Windows, those pkeyconfigs will be located in following directiories:
+
+- ActivationID (from ActKeyConfigId table) - `C:\Windows\System32\app\tokens\pkeyconfig\pkeyconfig-csvlk.xrm-ms`
+- SkuID (from ActKeyConfigId table) - `C:\Windows\System32\app\tokens\pkeyconfig\pkeyconfig-downlevel.xrm-ms`
+
+`<WinBuilds>` is only used during key generation, if you want to reduce the size then only add server relevant PlatformIDs as those only really matter. Haven't tested it to see if removing anything else will make it break but you can experiment around and let me know.
+
+`<CSVLK>` entry is where you want to put your newly acquired ActivationID in. 
+
+`ReleaseDate` can be whatever, in fact it would be good to even get rid of it altogether as py-kms doesn't seem to need it. 
+
+`VlmcsdIndex` honestly I forgot I'll edit this later when I figure out what it does again. 
+
+`GroupID` should correspond to the GroupId given in pkeyconfig, Min and MaxKeyId generally don't matter but it's a good practice to make them match with what pkeyconfig reports. 
+
+`Id=""` should be your ActivationId that you've gotten off pkeyconfig.
+
+It is unnecessary to add a specific EPid to a product, unless you experience activation errors due to it expecting certain value. You can get by just leaving it at blank which by default will generate a randomized EPid for each new request.
+
+```xml
+<CsvlkItem DisplayName="Windows Server 2019 (Azure Only)" ReleaseDate="2018-10-02T00:00:00Z" GroupId="206" IniFileName="Windows" Id="3c006fa7-3b03-45a4-93da-63ddc1bdce11">
+    <Activate KmsItem="UUID" />
+</CsvlkItem>
+```
+
+For KmsItem, read my comment below:
+
+```xml
+<!---
+            <KmsItem Id=""> is referenced by <Activate Id=""> in <CsvlkItem>
+            It can be a random GUID or UUIDv5 value.
+            Take a look at Windows Server 2025, it's GUID is 4b83307d-7788-50ff-8d1f-1861915bdb9d and if you scroll up to CsvlkItem entry for it, 
+            you will see an activate entry with the same Id. <Activate KmsItem=""> is supposed to point to an <KmsItem> entry in <AppItems>
+-->
+```
+
+This portion is also how entries show up on overview dashboard so you can customize it if you want, just don't go too crazy as it's pretty fragile.
+
+After you're done with all that manual work, you can mount your new KmsDataBase.xml to your container, restart it and try activating your desired product. If it activates, great! Try activating your another copy again to ensure that some regression didn't happen. If all works fine, you've successfully updated KmsDataBase.xml!
+
+**Note about porting License Manager KmsDataBase.xml**: Please, pleaaaseee do NOT just copy and paste it in! It will confuse py-kms due to duplicated entries in every single `<CsvlkItem>` block. License Manager can handle it because it was built for it, this will however make most licensing request take too long or time out on py-kms. Cherry-pick `CsvlkItem` property and `KmsItem` property, add them to your file and you don't have to worry about anything else anymore.
+
+## py-kms silently failing after modifying Dockerfile (no activation)
+
+This is an annoying problem with programs not logging their own execution error messages. This can be fixed by making sure that **every .py file inside py-kms directory has Read and Execute permissions.** Without them, it will silently fail and you'll get that dreadful message back about Activation server not responding.
+
+Yeah, the issue wasn't Python version. It's just that recent Python versions don't seem to ignore executable permissions anymore, or rather some distros do, so they will fail and burst into flames.
 
 ## 🤔 What products can it activate?
 
-Activates following versions of **Windows Server**, only **Volume Licensing** SKUs are compatible with this!
+It can activate about *most* things that are **Volume Licensed**. However, products using MAK VL are **incompatible** because that's just completely different thing. Mass Activation Keys are supplied by Microsoft and are alternative to KMS, they activate like a retail key would but instead are well, mass volume. 
+
+When it comes to py-kms, as long as it can handle the activation request then if there's a valid ActivationID and SkuID - it will activate it. We don't know if MS will update it or not so it may break in future unless somebody picks up and updates Py-KMS for that.
+
+Anyhow, here's what it can activate:
 
 ^: Semi-Annual channels included for Datacenter and Standard
 
-| Windows Server Version    | Editions                                                                                                                             |
+| Windows Server VL Version    | Editions                                                                                                                             |
 |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Windows Server 2025^      | Azure Core, Datacenter Azure Edition, Datacenter Standard                                                                            |
 | Windows Server 2022^      | Azure Core, Datacenter Azure Edition, Datacenter, Standard                                                                           |
@@ -68,11 +128,9 @@ Activates following versions of **Windows Server**, only **Volume Licensing** SK
 | Windows Server Next       | Preview Datacenter, Preview Standard, Preview Web, Preview ServerHI                                                                  |
 | Windows 10 ServerRdsh VL  | Enterprise multi-session                                                                                                             |
 
-Activates following Volume Licensing versions of **Windows**, only **Volume Licensing** SKUs are compatible with this!
-
 Enterprise G, Enterprise G N is known as China Government, Enterprise multi-session is known as ServerRdsh VL
 
-| Windows Version             | Editions                                                                                                                                                                             |
+| Windows VL Version             | Editions                                                                                                                                                                             |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Windows 11                 | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021-2024, S (Lean), Remote Server  |
 | Windows 11 Insider Preview | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021-2024 |
@@ -83,19 +141,18 @@ Enterprise G, Enterprise G N is known as China Government, Enterprise multi-sess
 | Windows 7                   | Enterprise, Enterprise E, Enterprise N, Professional, Professional E, Professional N, ThinPC, Embedded POSReady, Embedded Standard |
 | Windows Vista               | Business, Business N, Enterprise, Enterprise N |
 
-Activates following Volume Licensing versions of **Office**, only **Volume Licensing** SKUs are compatible with this!
-
-| Office Version              | Items                                                                                                                                                                                |
+| Office VL Version              | Items                                                                                                                                                                                |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Office 2010                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, InfoPath, Mondo 1, Mondo 2, OneNote, OutLook, Project Pro, Project Standard, Publisher, Small Business Basics, Visio Premium, Visio Pro, Visio Standard |
-| Office 2013                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard                    |
-| Office 2013 (Pre-Release)   | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard            |
-
-
-- Office 2016 (+ Preview)
-- Office 2019 (+ Preview [⭐])
-- [⭐] Office LTSC 2021 (+ Preview)
-- [⭐] Office LTSC 2024 (+ Preview) 
+| Office 2013 Pre-Release     | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard           |
+| Office 2013                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard                |
+| Office 2016                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, Mondo R, Outlook, Skype for Business (Lync), Project Pro, Project Pro C2R, Project Standard, Project Standard C2R, Publisher, Visio Pro, Visio Pro C2R, Visio Standard, Visio Standard C2R |
+| Office 2019 Preview         | Professional Plus Preview, Project Pro Preview, Visio Pro Preview       |
+| Office 2019                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Outlook, Skype for Business (Lync), Project Pro, Project Standard, Visio Pro, Visio Standard |
+| Office LTSC 2021 Preview    | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
+| Office LTSC 2021            | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project Standard, Publisher LTSC, Visio LTSC Pro, Visio LTSC Standard |
+| Office LTSC 2024 Preview    | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
+| Office LTSC 2024            | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project STandard, Visio LTSC Pro, Visio LTSC Standard |
 
 ## Network Ports
 
