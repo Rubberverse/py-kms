@@ -4,23 +4,39 @@ Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger
 
 ![repo-size](https://img.shields.io/github/repo-size/Rubberverse/py-kms) ![last-commit](https://img.shields.io/github/last-commit/Rubberverse/py-kms/next)
 
+## Mandatory warning (because some of you are reckless)
+
 > [!WARNING]
 > Only use this software in a private setting. Never open it up to internet, unless you wanna get striked down by Microsoft. Using this software in official, company setting is a violation of Microsoft license agreement.
 
-## 🍴 Fork changes (so far)
+Yes, who would've thought that an emulator that anyone could connect to and easily activate their copy without it requiring any extra verification (KmsKey) would be punishable by law? Anyhow, just keep it on your LAN, no one will care. If Microsoft can't take down some KMS server, they'll blacklist it so unless you wanna be a piece of history in their source code, maybe don't do that.
+
+No this is not piracy, we are just doing what Microsoft does with their AI garbage and it is... free-use. No, I don't mean *that* kind of free use, I mean it's free for grabs for anyone! Torrent it all, download it, feed it into an oversized beast that sinks power through a straw! 
+
+*If a big corporation can do it then so can you!!!* 
+
+It's only fair if that's how everyone is going to respect copyright law, eh? Rants aside, don't buy a Windows license as a legit user since you'll be stuck calling their hotline everytime you dare to move even a single part in your PC and it's main reason why people use scripts like MAS to begin with. Though if you ever bought a laptop or any OEM certificed device then... you already paid for a Windows license indirectly. Why pay again? Why spend those $300 just to have your key suddenly run out of uses because you dared to *gasp* swap a hard drive out of your pc, making it appear as a new one to Microsoft! You're a thief!!!
+
+Maybe I'm just too annoyed at this and I'm using GitHub Readme for a goofy emulator project to have an insane rant for no reason... it is what it is.
+
+## 😕 Another one of these?
+
+Yep, because I want something that I can maintain myself. It's also easier for me to troubleshoot a problem and find out why something happens... and also because I want bare minimum image.
+
+### 🍴 This is current changelog compared to upstream
 
 ![Dark Theme](https://github.com/user-attachments/assets/5d82c78c-57c8-408a-a0ec-465ec50d1702)
 
 Eventually the front-end will be better. I'm just seeing what it would be worthwhile switching to.
 
-**Front-end changes**
+**🌐 Front-end changes**
 
 - Dark theme for Overview
 - Partial Polish translation for Overview (default for now, eventually multi-lang will be a thing... maybe.)
 - Updated `bulma.min.css` to `v1.0.2` and added attibution (MIT license)
 - Removed hyperlink to `License` from Overview
 
-**Container changes**
+**📦 Container changes**
 
 - Removed `entrypoint.py`
 - Removed `bash` and `shadow`, purge `/var/cahe/apk` after apk installation process to free up space in the final image
@@ -28,25 +44,31 @@ Eventually the front-end will be better. I'm just seeing what it would be worthw
 - Change default directory from `/home/py-kms` to `/app`
 - Update package pinnings in `requirements.txt`
 
-**pykms changes**
+**🐍 pykms changes**
 
 - WebUI: Don't dump logs into the overview in case of failure, instead log them to console with a message to go check it.
 - Database: Updated `KMSDatabase.xml` with latest License Manager 5.1 changes, declutterified it to enhance py-kms performance and give it better reliability long-term (v2.0)
 
-## 🔨 Planned changes
+### 🔨 Planned fork changes
 
 ToDo list if you will.
 
-- [ ] Replace `start.py` and `healtcheck.py` with `sh` scripts
+- [ ] Replace `start.py` and `healtcheck.py` with `sh` scripts, or maybe something more "bare".
+- [ ] Maybe move it to a scratch base?
 - [ ] Simplify environmental variables
 - [ ] Better descriptions for database entries
 - [ ] Make front-end better
+- [ ] Better documentation for KmsDataBase.xml
+- [ ] Unclutter KmsDataBase.xml further
+- [ ] i18n support? Maybe?? Perchance???
 
-## 🐳 Image tags
+### 🐳 Image tags
 
 There are container images built and hosted under packages here, you can pull them if you want.
 
-## How to manually update KmsDataBase.xml
+I'm too lazy to put it here right now, you'll find it I believe in you!
+
+### 🔧 How to manually update KmsDataBase.xml
 
 Generally, all you need to add a new entry to the list is:
 
@@ -102,7 +124,7 @@ This is an annoying problem with programs not logging their own execution error 
 
 Yeah, the issue wasn't Python version. It's just that recent Python versions don't seem to ignore executable permissions anymore, or rather some distros do, so they will fail and burst into flames.
 
-## 🤔 What products can it activate?
+### 🤔 What products can it activate?
 
 It can activate about *most* things that are **Volume Licensed**. However, products using MAK VL are **incompatible** because that's just completely different thing. Mass Activation Keys are supplied by Microsoft and are alternative to KMS, they activate like a retail key would but instead are well, mass volume. 
 
@@ -154,7 +176,7 @@ Enterprise G, Enterprise G N is known as China Government, Enterprise multi-sess
 | Office LTSC 2024 Preview    | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
 | Office LTSC 2024            | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project STandard, Visio LTSC Pro, Visio LTSC Standard |
 
-## Network Ports
+### Network Ports
 
 > [!IMPORTANT]
 > Use `IP` environmental variable to enable IPv6 support if you require it. To do so, you set the environmental variable to following value `IP=::`. Otherwise, it will listen only on IPv4.
@@ -172,7 +194,7 @@ podman run -d localhost/py-kms:latest -p 127.0.0.1:9012:8080/tcp
 
 Quadlet configurations can be seen on my personal GitHub repository [here](https://github.com/MrRubberDucky/rubberverse.xyz/blob/main/LOCAL/Utilities/PYKMS.container)
 
-## Volumes
+### Volumes
 
 You should mount the database file for data persistence. It's read by the Web Server component. **Make sure that directory permissions match!**
 
