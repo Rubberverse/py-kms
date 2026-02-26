@@ -1,6 +1,6 @@
 # 🦆 Rubberverse Containers
 
-Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger changes eventually compared to this, working on decluttering everything. (Not a python programmer though so that's out of the question)
+Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger changes *eventually* (I'm busy with other things and that day may never come. Oh well.)
 
 ![repo-size](https://img.shields.io/github/repo-size/Rubberverse/py-kms) ![last-commit](https://img.shields.io/github/last-commit/Rubberverse/py-kms/next)
 
@@ -29,14 +29,14 @@ Yep, because I want something that I can maintain myself. It's also easier for m
 
 Eventually the front-end will be better. I'm just seeing what it would be worthwhile switching to.
 
-**🌐 Front-end changes**
+**Front-end changes**
 
 - Dark theme for Overview
 - Partial Polish translation for Overview (default for now, eventually multi-lang will be a thing... maybe.)
 - Updated `bulma.min.css` to `v1.0.2` and added attibution (MIT license)
 - Removed hyperlink to `License` from Overview
 
-**📦 Container changes**
+**Container changes**
 
 - Removed `entrypoint.py`
 - Removed `bash` and `shadow`, purge `/var/cahe/apk` after apk installation process to free up space in the final image
@@ -44,10 +44,12 @@ Eventually the front-end will be better. I'm just seeing what it would be worthw
 - Change default directory from `/home/py-kms` to `/app`
 - Update package pinnings in `requirements.txt`
 
-**🐍 pykms changes**
+**pykms changes**
 
 - WebUI: Don't dump logs into the overview in case of failure, instead log them to console with a message to go check it.
-- Database: Updated `KMSDatabase.xml` with latest License Manager 5.1 changes, declutterified it to enhance py-kms performance and give it better reliability long-term (v2.0)
+- Database: Updated `KMSDatabase.xml` with latest (well it was latest when this was written) License Manager 5.1 changes, declutterified it to enhance py-kms performance and give it better reliability long-term (v2.0)
+
+Maybe that actually does something, who knows. Hopefully now it activates all VL Windows and Office versions, if not then I missed some value somewhere.
 
 ### 🔨 Planned fork changes
 
@@ -62,13 +64,13 @@ ToDo list if you will.
 - [ ] Unclutter KmsDataBase.xml further
 - [ ] i18n support? Maybe?? Perchance???
 
-### 🐳 Image tags
+### Image tags
 
 There are container images built and hosted under packages here, you can pull them if you want.
 
 I'm too lazy to put it here right now, you'll find it I believe in you!
 
-### 🔧 How to manually update KmsDataBase.xml
+### How to manually update KmsDataBase.xml
 
 Generally, all you need to add a new entry to the list is:
 
@@ -130,51 +132,42 @@ It can activate about *most* things that are **Volume Licensed**. However, produ
 
 When it comes to py-kms, as long as it can handle the activation request then if there's a valid ActivationID and SkuID - it will activate it. We don't know if MS will update it or not so it may break in future unless somebody picks up and updates Py-KMS for that.
 
-Anyhow, here's what it can activate:
+Anyhow, here's what it can activate.
 
-^: Semi-Annual channels included for Datacenter and Standard
-
-| Windows Server VL Version    | Editions                                                                                                                             |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Windows Server 2025^      | Azure Core, Datacenter Azure Edition, Datacenter Standard                                                                            |
-| Windows Server 2022^      | Azure Core, Datacenter Azure Edition, Datacenter, Standard                                                                           |
-| Windows Server 2016       | Azure Core, Essentials, Datacenter, Standard, ARM64, Cloud Storage                                                                   |
-| Windows Server 2012 R2    | Essentials, Datacenter, Standard, Cloud Storage                                                                                      |
-| Windows Server 2012       | Essentials, Datacenter, Standard, MultiPoint Premium, MultiPoint Standard                                                            |
-| Windows Server 2008 R2 A  | MultiPoint Server 2010, Web, HPC Edition                                                                                             |
-| Windows Server 2008 R2 B  | Standard, Enterprise                                                                                                                 |
-| Windows Server 2008 R2 C  | Datacenter, Enterprise for Itanium                                                                                                   |
-| Windows Server 2008 A     | Web, Computer Cluster                                                                                                                |
-| Windows Server 2008 B     | Standard, Enterprise                                                                                                                 |
-| Windows Server 2008 C     | Datacenter, Datacenter without Hyper-V, Enterprise for Itanium                                                                       |
-| Windows Server Next       | Preview Datacenter, Preview Standard, Preview Web, Preview ServerHI                                                                  |
-| Windows 10 ServerRdsh VL  | Enterprise multi-session                                                                                                             |
+| VL Version         | SKUs                                                                                                           |
+|--------------------|----------------------------------------------------------------------------------------------------------------|
+| Windows Server 2025 | Azure Core, Datacenter Azure Edition, Datacenter, Standard         |
+| Windows Server 2022 | Azure Core, Datacenter Azure Edition, Datacenter, Standard         |
+| Windows Server 2016 | Azure Core, Essentials, Datacenter, Standard, ARM64, Cloud Storage |
+| Windows Server 2012 R2 | Essentials, Datacenter, Standard, Cloud Storage                 |
+| Windows Server 2012    |  Essentials, Datacenter, Standard, MultiPoint Premium, MultiPoint Standard |
+| Windows Server 2008 R2 A | MultiPoint Server 2010, Web, HTPC Edition |
+| Windows Server 2008 R2 B | Standard, Enterprise                      |
+| Windows Server 2008 R2 C | Datacenter, Enterprise for Itanium        |
+| Windows Server 2008 A    | Web, Computer Cluster                     |
+| Windows Server 2008 B    | Standard, Enterprise                      |
+| Windows Server 2008 C    | Datacenter, Datacenter without Hyper-V, Enterprise for Itanium |
+| Windows Server Next      | Preview Datacenter, Preview Standard, Preview Web, Preview ServerHI |
+| Windows 11         | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021/2024, S (Lean), Remote Server |
+| Windows 11 Insider | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N |
+| Windows 10         | Enterprise 2015 LTSB, Enterprise 2015 LTSB N, Enterprise 2016 LTSB, Enterprise 2016 LTSB N, Enterprise LTSC 2019/2021, Enterprise LTSC 2019/2021 N Education, Enterprise, Enterprise G, Enterprise G N, Pro, Pro Education, Pro Workstation, IoT Enterprise LTSC 2021-2024, S (Lean), Remote Server, ServerRdsh |
+| Windows 10 Insider | Enterprise, EnterpriseN, EnterpriseS, EnterpriseSN, Education, EducationN, Professional, ProfessionalN  |
+| Windows 8.1        | Enterprise, Enterprise N, Professional, Professional N, Embedded Industry Automotive, Embedded Industry Enterprise, Embedded Industry Professional, Core Connected, Core Connected N, Core Connected Country Specific, Core Connected Single Language |
+| Windows 8           | Enterprise, Enterprise N, Professional, Professional N, Embedded Industry Enterprise, Embedded Industry Professional, Embedded POSReady [Beta] |
+| Windows 7          | Enterprise, Enterprise E, Enterprise N, Professional, Professional E, Professional N, ThinPC, Embedded POSReady, Embedded Standard |
+| Windows Vista      | Business, Business N, Enterprise, Enterprise N |
+| Office LTSC 2024   | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project Standard, Visio LTSC Pro, Visio LTSC Standard |
+| Office LTSC 2024 Preview | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
+| Office LTSC 2021   | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project Standard, Publisher LTSC, Visio LTSC Pro, Visio LTSC Standard |
+| Office LTSC 2021 Preview | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
+| Office 2019        | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Outlook, Skype for Business (Lync), Project Pro, Project Standard, Visio Pro, Visio Standard |
+| Office 2019 Preview | Professional Plus Preview, Project Pro Preview, Visio Pro Preview  |
+| Office 2016         | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, Mondo R, Outlook, Skype for Business (Lync), Project Pro, Project Pro C2R, Project Standard, Project Standard C2R, Publisher, Visio Pro, Visio Pro C2R, Visio Standard, Visio Standard C2R |
+| Office 2013         | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard |
+| Office 2013 Pre-Release | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard |
+| Office 2010         |  	Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, InfoPath, Mondo 1, Mondo 2, OneNote, OutLook, Project Pro, Project Standard, Publisher, Small Business Basics, Visio Premium, Visio Pro, Visio Standard |
 
 Enterprise G, Enterprise G N is known as China Government, Enterprise multi-session is known as ServerRdsh VL
-
-| Windows VL Version             | Editions                                                                                                                                                                             |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Windows 11                 | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021-2024, S (Lean), Remote Server  |
-| Windows 11 Insider Preview | Enterprise, Enterprise N, Enterprise G, Enterprise G N, Enterprise Multi-session, Education, Education N, Pro, Pro N, Pro Education, Pro Education N, Pro Workstation, Pro Workstation N, IoT Enterprise LTSC 2021-2024 |
-| Windows 10                 | Enterprise 2015 LTSB, Enterprise 2015 LTSB N, Enterprise 2016 LTSB, Enterprise 2016 LTSB N, Enterprise LTSC 2019/2021, Enterprise LTSC 2019/2021 N Education, Enterprise, Enterprise G, Enterprise G N, Pro, Pro Education, Pro Workstation, IoT Enterprise LTSC 2021-2024, S (Lean), Remote Server |
-| Windows 10 Insider Preview  | Enterprise, EnterpriseN, EnterpriseS, EnterpriseSN, Education, EducationN, Professional, ProfessionalN                                                                               |
-| Windows 8.1                 | Enterprise, Enterprise N, Professional, Professional N, Embedded Industry Automotive, Embedded Industry Enterprise, Embedded Industry Professional, Core Connected, Core Connected N, Core Connected Country Specific, Core Connected Single Language |
-| Windows 8                   | Enterprise, Enterprise N, Professional, Professional N, Embedded Industry Enterprise, Embedded Industry Professional, Embedded POSReady [Beta] |
-| Windows 7                   | Enterprise, Enterprise E, Enterprise N, Professional, Professional E, Professional N, ThinPC, Embedded POSReady, Embedded Standard |
-| Windows Vista               | Business, Business N, Enterprise, Enterprise N |
-
-| Office VL Version              | Items                                                                                                                                                                                |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Office 2010                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, InfoPath, Mondo 1, Mondo 2, OneNote, OutLook, Project Pro, Project Standard, Publisher, Small Business Basics, Visio Premium, Visio Pro, Visio Standard |
-| Office 2013 Pre-Release     | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Groove, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard           |
-| Office 2013                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, OutLook, Lync, InfoPath, Project Pro, Project Standard, Publisher, Visio Pro, Visio Standard                |
-| Office 2016                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Mondo, Mondo R, Outlook, Skype for Business (Lync), Project Pro, Project Pro C2R, Project Standard, Project Standard C2R, Publisher, Visio Pro, Visio Pro C2R, Visio Standard, Visio Standard C2R |
-| Office 2019 Preview         | Professional Plus Preview, Project Pro Preview, Visio Pro Preview       |
-| Office 2019                 | Professional Plus, Standard, Access, Excel, Word, Powerpoint, Outlook, Skype for Business (Lync), Project Pro, Project Standard, Visio Pro, Visio Standard |
-| Office LTSC 2021 Preview    | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
-| Office LTSC 2021            | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project Standard, Publisher LTSC, Visio LTSC Pro, Visio LTSC Standard |
-| Office LTSC 2024 Preview    | Professional Plus Preview, Project Pro Preview, Visio Pro Preview |
-| Office LTSC 2024            | LTSC Professional Plus, LTSC Standard, Access LTSC, Excel LTSC, Word LTSC, Powerpoint LTSC, Outlook LTSC, Skype for Business (Lync) LTSC, Project Pro, Project STandard, Visio LTSC Pro, Visio LTSC Standard |
 
 ### Network Ports
 
@@ -192,18 +185,6 @@ If you need different web ports, use `--publish` in podman run command, `Publish
 podman run -d localhost/py-kms:latest -p 127.0.0.1:9012:8080/tcp
 ```
 
-Quadlet configurations can be seen on my personal GitHub repository [here](https://github.com/MrRubberDucky/rubberverse.xyz/blob/main/LOCAL/Utilities/PYKMS.container)
-
-### Volumes
-
-You should mount the database file for data persistence. It's read by the Web Server component. **Make sure that directory permissions match!**
-
-The directory you need to mount is `/app/db` and you can do so in following manner. You will need to create a directory inside of your users' home folder called `AppData/2_PERSIST/PYKMS` that is owned by following UID and GID: `1001:1001`
-
-```bash
-mkdir -p ~/AppData/2_PERSIST/PYKMS
-```
-
 ### Quadlet
 
 > [!WARNING]
@@ -212,46 +193,47 @@ mkdir -p ~/AppData/2_PERSIST/PYKMS
 In case you want to let the container process fix up the permissions by itself, you can pass `U` flag to the `Volume=` argument. This is easiest way to solve permission problems with rootless containers.
 
 ```conf
-Volume=${HOME}/AppData/2_PERSIST/PYKMS:/app/db:rw,Z,U
+Volume=%h/AppData/2_PERSIST/PYKMS:/app/db:rw,Z,U
 ```
 
-Here's a full config, based on my home one. Fully ready for production! :) Put it inside `~/.config/systemd/containers/PYKMS.container`, reload systemd - `systemctl --user daemon-reload` and then start it - `systemctl --user start PYKMS`
+Here's a full config, based on my home one.
+
+1. Copy and paste it into a file in `~/config/containers/systemd/pykms.container`
+2. Reload systemd `systemctl --user-daemon-reload`
+3. Create `Appdata` directory - `mkdir -p ~/Appdata/KMS`
+4. Start the service `systemctl --user start pykms`
 
 ```cfg
 [Unit]
-Description=KMS - Key Managment Service, used for Windows & Office activations
-
-[Service]
-Restart=on-failure
+Description=Key Managment Service (unofficial) - Used for Windows & Office activations
 
 [Install]
 WantedBy=default.target
 
+[Service]
+Restart=on-failure
+SystemCallArchitectures=native
+MemoryDenyWriteExecute=false
+
 [Container]
-# Base
-Image=localhost/py-kms:latest
-ContainerName=kms
-Volume=${HOME}/AppData/2_PERSIST/PYKMS:/app/db:rw,Z
-# Needed for private IPC
+Image=ghcr.io/rubberverse/qor-kms:latest-alpine
+ContainerName=rvs-kms
+Environment=KMS_IP=0.0.0.0
+# Volumes + shim
+Volume=%h/Appdata/KMS:/app/db:U,Z
 Tmpfs=/dev/shm
-# Networks
-Network=pasta:--ipv4-only
-# KMS port
-PublishPort=0.0.0.0:1688:1688/tcp
-# Dashboard port
-PublishPort=127.0.0.1:9012:8080/tcp
+# Labels
+NoNewPrivileges=true
+DropCapability=all
+ReadOnly=true
+# Network
+# SRV _vlmcs._tcp.<domain>
+PublishPort=1688:1688/tcp
+# User
+UserNS=auto:size=1003
 ```
 
-### Docker-Compose
-
-To bind mount inside the directory, you can do like so:
-
-```yaml
-volumes:
-    - ${HOME}/AppData/2_PERSIST/PYKMS:/app/db:rw,Z
-```
-
-Not providing full compose.yaml as I haven't touched it in well over a year. I'm a heavy Quadlet user right now.
+Now you have a container listening on `1688/tcp` for any KMS activation requests.
 
 ## Building the image locally
 
@@ -280,3 +262,4 @@ podman build -f Dockerfile -t localhost/py-kms:latest
 ```
 
 If all goes well, it should build successfully. Now you can reference it in your Quadlet or Docker Compose and deploy it! Just use `localhost/py-kms:latest` as your Image registry entry. `Image=localhost/py-kms:latest`
+
