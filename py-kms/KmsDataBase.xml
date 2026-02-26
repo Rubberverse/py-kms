@@ -57,7 +57,8 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
         <WinBuild BuildNumber="22621" ReleaseDate="2022-05-11T00:00:00Z" DisplayName="Windows 11 22H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="22631" ReleaseDate="2023-10-31:00:00:00Z" DisplayName="Windows 11 23H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="26100" ReleaseDate="2024-11-01T00:00:00Z" DisplayName="Windows 11 24H2 / Windows Server 2025" PlatformId="3612" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
-
+        <WinBuild BuildNumber="26200" ReleaseDate="2025-09-30T00:00:00Z" DisplayName="Windows 11 25H2" PlatformId="3612" UsesNDR64="true" />
+        <WinBuild BuildNumber="28000" ReleaseDate="2026-02-10T00:00:00Z" DisplayName="Windows 11 26H1" PlatformId="3612" UsesNDR64="true" />
     </WinBuilds>
 
     <CsvlkItems>
@@ -179,11 +180,16 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
             <Activate KmsItem="7ba0bf23-d0f5-4072-91d9-d55af5a481b6" />
         </CsvlkItem>
 
+        <CsvlkItem DisplayName="Windows 11 IoT Enterprise LTSC" ReleaseDate="2021-04-10T00:00:00Z" GroupId="206" MinKeyId="256000000" MaxKeyId="265999999" IniFileName="Windows" Id="66312e70-7163-594c-b572-766dad76c649" InvalidWinBuild="[0,1,2]">
+            <Activate KmsItem="00957d7f-f2a4-5a31-873e-a4246378fdbf" />
+        </CsvlkItem>
+
         <CsvlkItem DisplayName="Windows 10 2019" ReleaseDate="2018-10-02T00:00:00Z" GroupId="206" MinKeyId="256000000" MaxKeyId="265999999" IniFileName="Windows" Id="90da7373-1c51-430b-bf26-c97e9c5cdc31" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="11b15659-e603-4cf1-9c1f-f0ec01b81888" />
             <Activate KmsItem="58e2134f-8e11-4d17-9cb2-91069c151148" />
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
+            <Activate KmsItem="dc7169df-15ec-5346-ab7d-ecb1601bc9a5" />
         </CsvlkItem>
 
         <CsvlkItem DisplayName="Windows 10 2019 Microsoft Internal Lab" ReleaseDate="2018-10-02T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="2860000" MaxKeyId="2864999" IniFileName="Windows" Id="60b3ec1b-9545-4921-821f-311b129dd6f6" InvalidWinBuild="[0,1,2]">
@@ -413,6 +419,10 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
             <KmsItem DisplayName="Windows 10/11 China Government" Id="7ba0bf23-d0f5-4072-91d9-d55af5a481b6" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 10/11 Enterprise G" Id="e0b2d383-d112-413f-8a80-97f373a5820c" Gvlk="YYVX9-NTFWV-6MDM3-9PT4T-4M68B" />
                 <SkuItem DisplayName="Windows 10/11 Enterprise G N" Id="e38454fb-41a4-4f59-a5dc-25080e354730" Gvlk="44RPN-FTY23-9VTTB-MP9BX-T84FV" />
+            </KmsItem>
+
+            <KmsItem DisplayName="Windows 11 IoT Enterprise (Volume)" Id="00957d7f-f2a4-5a31-873e-a4246378fdbf" IsRetail="false" DefaultKmsProtocol="6.0" NCountPolicy="25">
+                <SkuItem DisplayName="Windows 11 IoT Enterprise LTSC 2021/2024" Id="dc7169df-15ec-5346-ab7d-ecb1601bc9a5" Gvlk="KBN8V-HFGQ4-MGXVD-347P6-PDQGT" />
             </KmsItem>
 
             <KmsItem DisplayName="Windows 10/11 (Retail)" Id="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" IsRetail="true" DefaultKmsProtocol="6.0" NCountPolicy="25">
@@ -681,3 +691,4 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
     </AppItems>
 
 </KmsData>
+
