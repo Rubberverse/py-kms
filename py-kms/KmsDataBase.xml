@@ -1,44 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- ReSharper disable MarkupAttributeTypo -->
-
-<!-- Credits:
-Modification that was used as a base: SystemRage (for py-kms)
-Base fork by xadammr (https://github.com/Py-KMS-Organization/py-kms/pull/99/files)
-Latest SKUs by Hotbird64 (from License Manager 5.1) https://forums.mydigitallife.net/threads/miscellaneous-kms-related-developments.52594/page-39#post-1587290
-License Manager 5.1 port by MrRubberDucky
-
-Pro-tip: You can read pkeyconfig off your Windows version you want to license in order to make an entry here.
-Files you're interested in: C:\Windows\System32\app\tokens\pkeyconfig\pkeyconfig-csvlk.xrm-ms (CSVLK - look at ActConfigId) and C:\Windows\System32\app\tokens\pkeyconfig\pkeyconfig-downlevel.xrm-ms (SkuID - look at ActConfigId)
-You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Reader by VisualSoftware
--->
-
 <KmsData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="2.0" Author="Hotbird64" xsi:noNamespaceSchemaLocation="KmsDataBase.xsd">
-
     <WinBuilds>
-        <!-- LM refuses 3-digit build numbers
-        <WinBuild BuildNumber="528" DisplayName="Windows NT 3.1" PlatformId="55041"/>
-        <WinBuild BuildNumber="807" DisplayName="Windows NT 3.5" PlatformId="55041"/>
-        -->
-        <!-- Windows NT 3.51 -->
         <WinBuild BuildNumber="1057" ReleaseDate="1995-05-30T00:00:00Z" DisplayName="Windows NT 3.51" PlatformId="55041"/>
-        <!-- Windows NT 4.0 -->
         <WinBuild BuildNumber="1381" ReleaseDate="1996-07-29T00:00:00Z" DisplayName="Windows NT 4.0" PlatformId="55041"/>
-        <!-- Windows 2000 -->
         <WinBuild BuildNumber="2195" ReleaseDate="2000-02-17T00:00:00Z" DisplayName="Windows 2000" PlatformId="55041"/>
-        <!-- Windows XP / Server 2003 -->
         <WinBuild BuildNumber="2600" ReleaseDate="2001-10-25T00:00:00Z" DisplayName="Windows XP 32-bit" PlatformId="55041"/>
         <WinBuild BuildNumber="3790" ReleaseDate="2003-03-28T00:00:00Z" DisplayName="Windows Server 2003 / XP 64-bit" PlatformId="55041" MayBeServer="true"/>
-        <!-- Windows Vista / Server 2008 -->
         <WinBuild BuildNumber="6000" ReleaseDate="2006-11-30T00:00:00Z" DisplayName="Windows Vista / Server 2008 without SP" PlatformId="55041" MayBeServer="true" />
         <WinBuild BuildNumber="6001" ReleaseDate="2008-02-04T00:00:00Z" DisplayName="Windows Vista / Server 2008 SP1" PlatformId="55041" MayBeServer="true" />
         <WinBuild BuildNumber="6002" ReleaseDate="2009-05-26T00:00:00Z" DisplayName="Windows Vista / Server 2008 SP2" UseForEpid="true" PlatformId="55041" MayBeServer="true" />
-        <!-- Windows 7 / Server 2008 R2-->
         <WinBuild BuildNumber="7600" ReleaseDate="2009-10-22T00:00:00Z" DisplayName="Windows 7 / Server 2008 R2 without SP" PlatformId="55041" MayBeServer="true"/>
         <WinBuild BuildNumber="7601" ReleaseDate="2011-02-22T00:00:00Z" DisplayName="Windows 7 / Server 2008 R2 SP1" PlatformId="55041" UseForEpid="true" MayBeServer="true"/>
-        <!-- Windows 8 / 8.1 / Server 2012 / Server 2012 R2-->
         <WinBuild BuildNumber="9200" ReleaseDate="2012-10-26T00:00:00Z" DisplayName="Windows 8 / Server 2012" PlatformId="5426" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
         <WinBuild BuildNumber="9600" ReleaseDate="2013-10-18T00:00:00Z" DisplayName="Windows 8.1 / Server 2012 R2" PlatformId="6401" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
-        <!-- Windows 10 / Server 2016 / Server 2019 / Server 2022-->
         <WinBuild BuildNumber="10240" ReleaseDate="2015-07-29T00:00:00Z" DisplayName="Windows 10 1507" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="14393" ReleaseDate="2016-08-02T00:00:00Z" DisplayName="Windows 10 1607 / Server 2016" PlatformId="3612" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
         <WinBuild BuildNumber="15063" ReleaseDate="2017-04-05T00:00:00Z" DisplayName="Windows 10 1703" PlatformId="3612" UsesNDR64="true"/>
@@ -52,7 +27,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
         <WinBuild BuildNumber="19043" ReleaseDate="2021-05-18T00:00:00Z" DisplayName="Windows 10 21H1" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="19044" ReleaseDate="2021-09-24T00:00:00Z" DisplayName="Windows 10 21H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="20348" ReleaseDate="2021-08-18T00:00:00Z" DisplayName="Windows Server 2022 (21H2)" PlatformId="3612" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
-        <!-- Windows 11 / Server 2025 -->
         <WinBuild BuildNumber="22000" ReleaseDate="2021-06-24T00:00:00Z" DisplayName="Windows 11 21H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="22621" ReleaseDate="2022-05-11T00:00:00Z" DisplayName="Windows 11 22H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="22631" ReleaseDate="2023-10-31:00:00:00Z" DisplayName="Windows 11 23H2" PlatformId="3612" UsesNDR64="true"/>
@@ -60,145 +34,95 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
         <WinBuild BuildNumber="26200" ReleaseDate="2025-09-30T00:00:00Z" DisplayName="Windows 11 25H2" PlatformId="3612" UsesNDR64="true" />
         <WinBuild BuildNumber="28000" ReleaseDate="2026-02-10T00:00:00Z" DisplayName="Windows 11 26H1" PlatformId="3612" UsesNDR64="true" />
     </WinBuilds>
-
     <CsvlkItems>
-
-        <!-- Windows Server 2025 / Server 2025 Azure Edition / Server 2025 Lab -->
-
-        <!-- 
-        CSVLK entry consist of DisplayName="" which is human-readable name of the thing we want to activate,
-        meanwhile Id="" is CSVLK key.
-        -->
         <CsvlkItem DisplayName="Windows Server 2025" ReleaseDate="2024-11-01T00:00:00Z" VlmcsdIndex="0" GroupId="4918" MinKeyId="30000" MaxKeyId="20029999" IniFileName="Windows" Id="84e331f6-4279-48c4-ab10-b75139181351" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="4b83307d-7788-50ff-8d1f-1861915bdb9d" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2025 (Azure-only)" ReleaseDate="2024-04-26T00:00:00Z" VlmcsdIndex="0" GroupId="4919" MinKeyId="0" MaxKeyId="49999" IniFileName="Windows" Id="82fcf64d-f9dd-4411-9c79-f2eed16d4eb8" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="4b83307d-7788-50ff-8d1f-1861915bdb9d" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2025 (Microsoft Internal Lab)" ReleaseDate="2024-04-26T00:00:00Z" VlmcsdIndex="0" GroupId="4920" MinKeyId="0" MaxKeyId="49999" IniFileName="Windows" Id="6bad0243-1c35-46b2-b8e6-7a853e37413f" IsLab="True">
             <Activate KmsItem="4b83307d-7788-50ff-8d1f-1861915bdb9d" />
         </CsvlkItem>
-
-        <!-- Windows Server 2022 / Server 2022 Azure Edition / Server 2022 Lab -->
         <CsvlkItem DisplayName="Windows Server 2022" ReleaseDate="2021-08-18T00:00:00Z" VlmcsdIndex="0" GroupId="4573" MinKeyId="0" MaxKeyId="20029999" IniFileName="Windows" Id="661f7658-7035-4b4c-9f35-010682943ec2" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="10a7e9fb-ca8c-5352-88f5-91b8dbe13b22" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2022 (Azure-only)" ReleaseDate="2021-08-18T00:00:00Z" VlmcsdIndex="0" GroupId="4574" MinKeyId="0" MaxKeyId="49999" IniFileName="Windows" Id="e73aabfa-12bc-4705-b551-2dd076bebc7d" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="10a7e9fb-ca8c-5352-88f5-91b8dbe13b22" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2022 (Microsoft Internal Lab)" ReleaseDate="2021-08-18T00:00:00Z" VlmcsdIndex="0" GroupId="4575" MinKeyId="0" MaxKeyId="49999" IniFileName="Windows" Id="22105925-48c3-4ff4-a294-f654bb27e390" InvalidWinBuild="[0,1]" IsLab="True">
             <Activate KmsItem="10a7e9fb-ca8c-5352-88f5-91b8dbe13b22" />
         </CsvlkItem>
-
-        <!-- Windows Server 2019 / Server 2019 Azure Edition / Server 2019 Lab  -->
         <CsvlkItem DisplayName="Windows Server 2019" ReleaseDate="2018-10-02T00:00:00Z" VlmcsdIndex="0" GroupId="206" MinKeyId="551000000" MaxKeyId="570999999" IniFileName="Windows" EPid="06401-00206-566-174993-03-1033-9600.0000-2802018" Id="2e7a9ad1-a849-4b56-babe-17d5a29fe4b4" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="8449b1fb-f0ea-497a-99ab-66ca96e9a0f5" />
         </CsvlkItem>
-
-        <CsvlkItem DisplayName="Windows Server 2019 (Azure Only)" ReleaseDate="2018-10-02T00:00:00Z" GroupId="206" IniFileName="Windows" Id="3c006fa7-3b03-45a4-93da-63ddc1bdce11">
+        <CsvlkItem DisplayName="Windows Server 2019 (Azure Only)" ReleaseDate="2018-10-02T00:00:00Z" GroupId="206" MinKeyId="551000000" MaxKeyId="570999999" IniFileName="Windows" Id="3c006fa7-3b03-45a4-93da-63ddc1bdce11">
             <Activate KmsItem="8449b1fb-f0ea-497a-99ab-66ca96e9a0f5" />
             <Activate KmsItem="cbdcb1ba-e093-4c81-a463-10775291fdf9" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2019 (Microsoft Internal Lab)" ReleaseDate="2018-10-02T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="2835000" MaxKeyId="2854999" IniFileName="Windows" Id="9db83b52-9904-4326-8957-ebe6feedf37c" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="8449b1fb-f0ea-497a-99ab-66ca96e9a0f5" />
         </CsvlkItem>
-
-        <!-- Windows Server 2016 / Windows Server 2016 Lab -->
         <CsvlkItem DisplayName="Windows Server 2016" ReleaseDate="2016-08-02T00:00:00Z" GroupId="206" MinKeyId="491000000" MaxKeyId="530999999" IniFileName="Windows" Id="d6992aac-29e7-452a-bf10-bbfb8ccabe59" InvalidWinBuild="[0,1]">
             <Activate KmsItem="6e9fc069-257d-4bc4-b4a7-750514d32743" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2016 (Microsoft Internal Lab)" ReleaseDate="2016-08-02T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="1510000" MaxKeyId="2009999" IniFileName="Windows" Id="3c2da9a5-1c6e-45d1-855f-fdbef536676f" InvalidWinBuild="[0,1]">
             <Activate KmsItem="6e9fc069-257d-4bc4-b4a7-750514d32743" />
         </CsvlkItem>
-
-        <!-- Windows Server 2012 R2 with Win 10 / Server 2012 With Win 10 Lab -->
         <CsvlkItem DisplayName="Windows Server 2012 R2 With Win 10" ReleaseDate="2015-07-29T00:00:00Z" GroupId="206" MinKeyId="405000000" MaxKeyId="424999999" IniFileName="Windows" Id="20e938bb-df44-45ee-bde1-4e4fe7477f37" InvalidWinBuild="[0]">
             <Activate KmsItem="8456efd3-0c04-4089-8740-5b7238535a65" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2012 R2 With Win 10 (Microsoft Internal Lab)" ReleaseDate="2015-07-29T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="17650000" MaxKeyId="17849999" IniFileName="Windows" Id="9e3fde40-d4b3-4c1d-9bde-32735aa19b39" InvalidWinBuild="[0]">
             <Activate KmsItem="8456efd3-0c04-4089-8740-5b7238535a65" />
         </CsvlkItem>
-
-        <!-- Windows Server 2012 R2 / Server 2012 R2 Lab -->
         <CsvlkItem DisplayName="Windows Server 2012 R2" ReleaseDate="2013-10-17T00:00:00Z" GroupId="206" MinKeyId="271000000" MaxKeyId="310999999" IniFileName="Windows" Id="dcb88f6f-b090-405b-850e-dabcccf3693f" InvalidWinBuild="[0]">
             <Activate KmsItem="8456efd3-0c04-4089-8740-5b7238535a65" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2012 R2 (Microsoft Internal Lab)" ReleaseDate="2012-10-26T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="98500000" MaxKeyId="98999999" IniFileName="Windows" Id="fe27276b-a5a9-4b4d-88e3-14271beb79be" InvalidWinBuild="[0]">
             <Activate KmsItem="8665cb71-468c-4aa3-a337-cb9bc9d5eaac" />
         </CsvlkItem>
-
-        <!-- Windows Server 2012 / Server 2012 Lab -->
         <CsvlkItem DisplayName="Windows Server 2012" GroupId="206" MinKeyId="152000000" MaxKeyId="191999999" IniFileName="Windows" Id="7b37c913-252b-46be-ad80-b2b5ceade8af" InvalidWinBuild="[0]">
             <Activate KmsItem="8665cb71-468c-4aa3-a337-cb9bc9d5eaac" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2012 (Microsoft internal Lab)" IsLab="true" GroupId="206" MinKeyId="98500000" MaxKeyId="98999999" IniFileName="Windows" Id="fe27276b-a5a9-4b4d-88e3-14271beb79be" InvalidWinBuild="[0]">
             <Activate KmsItem="8665cb71-468c-4aa3-a337-cb9bc9d5eaac" />
         </CsvlkItem>
-
-        <!-- Windows Server 2008 R2 C/B/A-->
         <CsvlkItem DisplayName="Windows Server 2008 R2 C (Datacenter)" ReleaseDate="2009-10-22T00:00:00Z" GroupId="168" MinKeyId="305000000" MaxKeyId="312119999" IniFileName="Windows" Id="8fe15d04-fc66-40e6-bf34-942481e06fd8" InvalidWinBuild="[0]">
             <Activate KmsItem="b2ca2689-a9a8-42d7-938d-cf8e9f201958" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2008 R2 B (Standard &amp; Enterprise)" ReleaseDate="2009-10-22T00:00:00Z" GroupId="168" MinKeyId="312880000" MaxKeyId="332999999" IniFileName="Windows" Id="c99b641f-c4ea-4e63-bec3-5ed2ccd0f357" InvalidWinBuild="[0]">
             <Activate KmsItem="ca87f5b6-cd46-40c0-b06d-8ecd57a4373f" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2008 R2 A (Web &amp; HPC)" ReleaseDate="2009-10-22T00:00:00Z"  GroupId="168" MinKeyId="249000000" MaxKeyId="259119999" IniFileName="Windows" Id="f73d1bcd-0802-47dd-b2d9-81bf2f8c0744" InvalidWinBuild="[0]">
             <Activate KmsItem="0fc6ccaf-ff0e-4fae-9d08-4370785bf7ed" />
         </CsvlkItem>
-
-        <!-- Windows Server 2008 C/B/A-->
         <CsvlkItem DisplayName="Windows Server 2008 C (Datacenter)" ReleaseDate="2006-11-30T00:00:00Z" GroupId="152" MinKeyId="381000000" MaxKeyId="392999999" IniFileName="Windows" Id="c90d1b4e-8aa8-439e-8b9e-b6d6b6a6d975" InvalidWinBuild="[]">
             <Activate KmsItem="8a21fdf3-cbc5-44eb-83f3-fe284e6680a7" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2008 B (Standard &amp; Enterprise)" ReleaseDate="2006-11-30T00:00:00Z" GroupId="152" MinKeyId="339000000" MaxKeyId="358999999" IniFileName="Windows" Id="56df4151-1f9f-41bf-acaa-2941c071872b" InvalidWinBuild="[]">
             <Activate KmsItem="8fe53387-3087-4447-8985-f75132215ac9" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Server 2008 A (Web &amp; HPC)" ReleaseDate="2006-11-30T00:00:00Z" GroupId="152" MinKeyId="368000000" MaxKeyId="380999999" IniFileName="Windows" Id="c448fa06-49d1-44ec-82bb-0085545c3b51" InvalidWinBuild="[]">
             <Activate KmsItem="33e156e4-b76f-4a52-9f91-f641dd95ac48" />
         </CsvlkItem>
-
-        <!-- Windows Server Next -->
         <CsvlkItem DisplayName="Windows Server Next (Pre-Release)" ReleaseDate="2015-07-29T00:00:00Z" IniFileName="Windows" Id="c609957a-dc23-48b3-8c6b-31b303479de2" IsPreview="true">
             <Activate KmsItem="6d5f5270-31ac-433e-b90a-39892923c657" />
         </CsvlkItem>
-
-        <!-- Windows 10 -->
         <CsvlkItem DisplayName="Windows 10 China Government" ReleaseDate="2017-04-05T00:00:00Z" VlmcsdIndex="4" GroupId="3858" MinKeyId="15000000" MaxKeyId="999999999" IniFileName="WinChinaGov" EPid="06401-03858-320-801028-03-1033-9600.0000-2802018" Id="ecc0774a-aed3-4e1a-b815-2b31781adfea" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="7ba0bf23-d0f5-4072-91d9-d55af5a481b6" />
         </CsvlkItem>
-
-        <CsvlkItem DisplayName="Windows 11 IoT Enterprise LTSC" ReleaseDate="2021-04-10T00:00:00Z" GroupId="206" MinKeyId="256000000" MaxKeyId="265999999" IniFileName="Windows" Id="66312e70-7163-594c-b572-766dad76c649" InvalidWinBuild="[0,1,2]">
-            <Activate KmsItem="00957d7f-f2a4-5a31-873e-a4246378fdbf" />
-        </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 2019" ReleaseDate="2018-10-02T00:00:00Z" GroupId="206" MinKeyId="256000000" MaxKeyId="265999999" IniFileName="Windows" Id="90da7373-1c51-430b-bf26-c97e9c5cdc31" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="11b15659-e603-4cf1-9c1f-f0ec01b81888" />
             <Activate KmsItem="58e2134f-8e11-4d17-9cb2-91069c151148" />
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
-            <Activate KmsItem="dc7169df-15ec-5346-ab7d-ecb1601bc9a5" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 2019 Microsoft Internal Lab" ReleaseDate="2018-10-02T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="2860000" MaxKeyId="2864999" IniFileName="Windows" Id="60b3ec1b-9545-4921-821f-311b129dd6f6" InvalidWinBuild="[0,1,2]">
             <Activate KmsItem="11b15659-e603-4cf1-9c1f-f0ec01b81888" />
             <Activate KmsItem="58e2134f-8e11-4d17-9cb2-91069c151148" />
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 2016" ReleaseDate="2016-08-02T00:00:00Z" GroupId="206" MinKeyId="531000000" MaxKeyId="545999999" IniFileName="Windows" Id="30a42c86-b7a0-4a34-8c90-ff177cb2acb7" InvalidWinBuild="[0,1]">
             <Activate KmsItem="969fe3c0-a3ec-491a-9f25-423605deb365" />
             <Activate KmsItem="11b15659-e603-4cf1-9c1f-f0ec01b81888" />
@@ -206,7 +130,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 2016 Microsoft Internal Lab" ReleaseDate="2016-08-02T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="2015000" MaxKeyId="2114999" IniFileName="Windows" Id="d552befb-48cc-4327-8f39-47d2d94f987c" InvalidWinBuild="[0,1]">
             <Activate KmsItem="969fe3c0-a3ec-491a-9f25-423605deb365" />
             <Activate KmsItem="11b15659-e603-4cf1-9c1f-f0ec01b81888" />
@@ -214,118 +137,84 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 2015 VL" ReleaseDate="2015-07-29T00:00:00Z" GroupId="206" MinKeyId="390000000" MaxKeyId="404999999" IniFileName="Windows" Id="0724cb7d-3437-4cb7-93cb-830375d0079d" InvalidWinBuild="[0,1]">
             <Activate KmsItem="58e2134f-8e11-4d17-9cb2-91069c151148" />
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 2015 Microsoft Internal Lab" ReleaseDate="2016-08-02T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="10700000" MaxKeyId="10799999" IniFileName="Windows" Id="7a802526-4c94-4bd1-ba14-835a1aca2120" InvalidWinBuild="[0,1]">
             <Activate KmsItem="58e2134f-8e11-4d17-9cb2-91069c151148" />
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 10 and 8.1 Pre-Release" ReleaseDate="2015-07-29T00:00:00Z" IsPreview="true" GroupId="206" MinKeyId="1000000" MaxKeyId="1009999" IniFileName="Windows" Id="d521c0fd-1732-4c15-8b98-a41b2a95bbc4" InvalidWinBuild="[0,1]">
             <Activate KmsItem="58e2134f-8e11-4d17-9cb2-91069c151148" />
             <Activate KmsItem="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" />
             <Activate KmsItem="5f94a0bb-d5a0-4081-a685-5819418b2fe0" />
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
         </CsvlkItem>
-
-        <!-- Windows 8.x -->
         <CsvlkItem DisplayName="Windows 8.1" ReleaseDate="2013-10-17T00:00:00Z" GroupId="206" MinKeyId="339000000" MaxKeyId="353999999" IniFileName="Windows" Id="29d0b60f-66da-4858-bcaf-9eb513cd310d" InvalidWinBuild="[0]">
             <Activate KmsItem="cb8fc780-2c05-495a-9710-85afffc904d7" />
             <Activate KmsItem="6d646890-3606-461a-86ab-598bb84ace82" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 8.1 (Microsoft internal Lab)" ReleaseDate="2013-10-17T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="109500000" MaxKeyId="109999999" IniFileName="Windows" Id="4614b66f-a1d7-441c-9731-23f22d0ff4e5" InvalidWinBuild="[0]">
             <Activate KmsItem="cb8fc780-2c05-495a-9710-85afffc904d7" />
             <Activate KmsItem="6d646890-3606-461a-86ab-598bb84ace82" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 8" ReleaseDate="2012-10-26T00:00:00Z" GroupId="206" MinKeyId="199000000" MaxKeyId="213999999" IniFileName="Windows" Id="24259a22-3bf0-44af-a68b-1b858bce1894" InvalidWinBuild="[0]">
             <Activate KmsItem="3c40b358-5948-45af-923b-53d21fcc7e79" />
             <Activate KmsItem="bbb97b3b-8ca4-4a28-9717-89fabd42c4ac" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows 8 (Microsoft Internal Lab)" ReleaseDate="2012-10-26T00:00:00Z" IsLab="true" GroupId="206" MinKeyId="21100000" MaxKeyId="21599999" IniFileName="Windows" Id="044ba67a-4c54-47ee-941a-d6f2efaa6891" InvalidWinBuild="[0]">
             <Activate KmsItem="3c40b358-5948-45af-923b-53d21fcc7e79" />
             <Activate KmsItem="bbb97b3b-8ca4-4a28-9717-89fabd42c4ac" />
         </CsvlkItem>
-
-        <!-- Windows 7 -->
         <CsvlkItem DisplayName="Windows 7" ReleaseDate="2009-10-22T00:00:00Z" GroupId="172" MinKeyId="37000000" MaxKeyId="49749999" IniFileName="Windows" Id="d188820a-cb63-4bad-a9a2-40b843ee23b7" InvalidWinBuild="[0]">
             <Activate KmsItem="7fde5219-fbfa-484a-82c9-34d1ad53e856" />
             <Activate KmsItem="212a64dc-43b1-4d3d-a30c-2fc69d2095c6" />
         </CsvlkItem>
-
-        <!-- Windows Vista -->
         <CsvlkItem DisplayName="Windows Vista (1 of 2)" ReleaseDate="2006-11-30T00:00:00Z" GroupId="142" MinKeyId="26000000" MaxKeyId="35999999" IniFileName="Windows" Id="212a64dc-43b1-4d3d-a30c-2fc69d2095c6" InvalidWinBuild="[]">
             <Activate KmsItem="212a64dc-43b1-4d3d-a30c-2fc69d2095c6" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Vista (2 of 2)" ReleaseDate="2006-11-30T00:00:00Z" GroupId="154" MinKeyId="394000000" MaxKeyId="416999999" IniFileName="Windows" Id="4871de8b-3adf-4455-a7d3-fd7b6c01c939" InvalidWinBuild="[]">
             <Activate KmsItem="212a64dc-43b1-4d3d-a30c-2fc69d2095c6" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Windows Vista (All Volume) [Pre-Release]" ReleaseDate="2006-10-10T00:00:00Z" IniFileName="Windows" Id="b8cf7a60-5668-41b0-addd-6de32e69b0c6" InvalidWinBuild="[]">
             <Activate KmsItem="e4ce4674-966b-5e34-9b98-e988af5fad64" />
         </CsvlkItem>
-
-        <!-- Microsoft Office 2010/2013/2016/2019/LTSC 2022/LTSC 2024 (VL)-->
         <CsvlkItem DisplayName="Office LTSC 2024" VlmcsdIndex="6" GroupId="206" MinKeyId="666000000" MaxKeyId="685999999" IniFileName="Office2024" Id="f3d89bbf-c0ec-47ce-a8fa-e5a5f97e447f" InvalidWinBuild="[0,1]">
             <Activate KmsItem="1b4db7eb-4057-5ddf-91e0-36dec72071f5" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office LTSC 2021" ReleaseDate="2021-09-16T00:00:00Z" VlmcsdIndex="6" GroupId="206" MinKeyId="571000000" MaxKeyId="590999999" IniFileName="Office2021" EPid="05426-00206-586-025264-03-1033-9200.0000-2602021" Id="47f3b983-7c53-4d45-abc6-bcd91e2dd90a" InvalidWinBuild="[0,1]">
             <Activate KmsItem="86d50b16-4808-41af-b83b-b338274318b2" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office 2019 VL" ReleaseDate="2018-09-24T00:00:00Z" VlmcsdIndex="5" GroupId="206" MinKeyId="666000000" MaxKeyId="685999999" IniFileName="Office2019" EPid="06401-00206-678-008369-03-1033-9600.0000-2802018" Id="70512334-47b4-44db-a233-be5ea33b914c" InvalidWinBuild="[0,1]">
             <Activate KmsItem="617d9eb1-ef36-4f82-86e0-a65ae07b96c6" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office 2016 VL" ReleaseDate="2015-09-22T00:00:00Z" VlmcsdIndex="3" GroupId="206" MinKeyId="437000000" MaxKeyId="458999999" IniFileName="Office2016" EPid="06401-00206-456-865118-03-1033-9600.0000-2802018" Id="98ebfe73-2084-4c97-932c-c0cd1643bea7" InvalidWinBuild="[0]">
             <Activate KmsItem="85b5f61b-320b-4be3-814a-b76b2bfafc82" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office 2016 VL [Pre-Release]" ReleaseDate="2015-09-15T00:00:00Z" IsPreview="true" GroupId="" MinKeyId="" MaxKeyId="" Id="1114b902-9bfe-4a7c-ba7c-1a7db3669d67" InvalidWinBuild="">
             <Activate KmsItem="00000000-0000-0000-0000-000000000000" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office 2013 VL" ReleaseDate="2013-01-29T00:00:00Z" VlmcsdIndex="2" GroupId="206" MinKeyId="234000000" MaxKeyId="255999999" IniFileName="Office2013" EPid="06401-00206-243-662026-03-1033-9600.0000-2802018" Id="2e28138a-847f-42bc-9752-61b03fff33cd" InvalidWinBuild="[]">
             <Activate KmsItem="e6a6f1bf-9d40-40c3-aa9f-c77ba21578c0" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office 2013 VL [Pre-Release]" ReleaseDate="2013-01-20T00:00:00Z" IsPreview="true" GroupId="" MinKeyId="" MaxKeyId="" EPid="" Id="" InvalidWinBuild="">
             <Activate KmsItem="aa4c7968-b9da-4680-92b6-acb25e2f866c" />
         </CsvlkItem>
-
         <CsvlkItem DisplayName="Office 2010 VL" ReleaseDate="2010-07-15T00:00:00Z" VlmcsdIndex="1" GroupId="96" MinKeyId="199000000" MaxKeyId="217999999" IniFileName="Office2010" EPid="06401-00096-208-497764-03-1033-9600.0000-2802018" Id="bfe7a195-4f8f-4f0b-a622-cf13c7d16864" InvalidWinBuild="[]">
             <Activate KmsItem="e85af946-2e25-47b7-83e1-bebcebeac611" />
         </CsvlkItem>
-
     </CsvlkItems>
-
     <AppItems>
-        
         <AppItem DisplayName="Windows" VlmcsdIndex="0" Id="55c92734-d682-4d71-983e-d6ec3f16059f" MinActiveClients="50">
-
-            <!--
-            <KmsItem Id=""> is referenced by <Activate Id=""> in <CsvlkItem>
-            It can be a random GUID or UUIDv5 value.
-            Take a look at Windows Server 2025, it's GUID is 4b83307d-7788-50ff-8d1f-1861915bdb9d and if you scroll up to CsvlkItem entry for it, 
-            you will see an activate entry with the same Id. <Activate Id=""> is supposed to point to an <KmsItem> entry in <AppItems>
-            -->
             <KmsItem DisplayName="Windows Server 2025" Id="4b83307d-7788-50ff-8d1f-1861915bdb9d" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2025 Azure Core" Id="45b5aff2-60a0-42f2-bc4b-ec6e5f7b527e" Gvlk="QN7G3-4RM92-MT6QR-PR966-FVYV7" />
                 <SkuItem DisplayName="Windows Server 2025 Datacenter Azure Edition" Id="c2e946d1-cfa2-4523-8c87-30bc696ee584" Gvlk="NQ8HH-FTDTM-6VGY7-TQ3DV-XFBV2" />
                 <SkuItem DisplayName="Windows Server 2025 Datacenter" Id="c052f164-cdf6-409a-a0cb-853ba0f0f55a" Gvlk="D764K-2NDRG-47T6Q-P8T8W-YP6DF" />
                 <SkuItem DisplayName="Windows Server 2025 Standard" Id="7dc26449-db21-4e09-ba37-28f2958506a6" Gvlk="TVRH6-WHNXV-R9WG3-9XRFY-MY832" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2022" Id="b74263e4-0f92-46c6-bcf8-c11d5efe2959" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2022 Azure Core" Id="8c8f0ad3-9a43-4e05-b840-93b8d1475cbc" Gvlk="6N379-GGTMK-23C6M-XVVTC-CKFRQ" />
                 <SkuItem DisplayName="Windows Server 2022 Datacenter Azure Edition" Id="19b5e0fb-4431-46bc-bac1-2f1873e4ae73" Gvlk="NTBV8-9K7Q8-V27C6-M2BTV-KHMXV" />
@@ -334,7 +223,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows Server 2022 Datacenter (Semi-Annual Channel)" Id="39e69c41-42b4-4a0a-abad-8e3c10a797cc" Gvlk="QFND9-D3Y9C-J3KKY-6RPVP-2DPYV" />
                 <SkuItem DisplayName="Windows Server 2022 Standard (Semi-Annual Channel)" Id="f5e9429c-f50b-4b98-b15c-ef92eb5cff39" Gvlk="67KN8-4FYJW-2487Q-MQ2J7-4C4RG" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2019" Id="8449b1fb-f0ea-497a-99ab-66ca96e9a0f5" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2019 Azure Core" Id="a99cc1f0-7719-4306-9645-294102fbff95" Gvlk="FDNH6-VW9RW-BXPJ7-4XTYG-239TB" />
                 <SkuItem DisplayName="Windows Server 2019 Essentials" Id="034d3cbb-5d4b-4245-b3f8-f84571314078" Gvlk="WVDHN-86M7X-466P6-VHXV7-YY726" />
@@ -344,7 +232,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows Server 2019 Datacenter (Semi-Annual Channel)" Id="90c362e5-0da1-4bfd-b53b-b87d309ade43" Gvlk="6NMRW-2C8FM-D24W7-TQWMY-CWH2D" />
                 <SkuItem DisplayName="Windows Server 2019 Standard (Semi-Annual Channel)" Id="73e3957c-fc0c-400d-9184-5f7b6f2eb409" Gvlk="N2KJX-J94YW-TQVFB-DG9YT-724CC" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2016" Id="6e9fc069-257d-4bc4-b4a7-750514d32743" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2016 Azure Core" Id="3dbf341b-5f6c-4fa7-b936-699dce9e263f" Gvlk="VP34G-4NPPG-79JTQ-864T4-R3MQX" />
                 <SkuItem DisplayName="Windows Server 2016 Essentials" Id="2b5a1b0f-a5ab-4c54-ac2f-a6d94824a283" Gvlk="JCKRF-N37P4-C2D82-9YXRT-4M63B" />
@@ -355,14 +242,12 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows Server 2016 Standard (Semi-Annual Channel)" Id="61c5ef22-f14f-4553-a824-c4b31e84b100" Gvlk="PTXN8-JFHJM-4WC78-MPCBR-9W4KR" />
                 <SkuItem DisplayName="Windows Server 2016 Cloud Storage" Id="7b4433f4-b1e7-4788-895a-c45378d38253" Gvlk="QN4C6-GBJD2-FB422-GHWJK-GJG2R" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2012 R2" Id="8456efd3-0c04-4089-8740-5b7238535a65" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2012 R2 Essentials" Id="21db6ba4-9a7b-4a14-9e29-64a60c59301d" Gvlk="KNC87-3J2TX-XB4WP-VCPJV-M4FWM" />
                 <SkuItem DisplayName="Windows Server 2012 R2 Datacenter" Id="00091344-1ea4-4f37-b789-01750ba6988c" Gvlk="W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9" />
                 <SkuItem DisplayName="Windows Server 2012 R2 Standard" Id="b3ca044e-a358-4d68-9883-aaa2941aca99" Gvlk="D2N9P-3P6X9-2R39C-7RTCD-MDVJX" />
                 <SkuItem DisplayName="Windows Server 2012 R2 Cloud Storage" Id="b743a2be-68d4-4dd3-af32-92425b7bb623" Gvlk="3NPTF-33KPT-GGBPR-YX76B-39KDD" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2012" Id="8665cb71-468c-4aa3-a337-cb9bc9d5eaac" DefaultKmsProtocol="5.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2012 Essentials" Id="8f365ba6-c1b9-4223-98fc-282a0756a3ed" Gvlk="HTDQM-NBMMG-KGYDT-2DTKT-J2MPV" />
                 <SkuItem DisplayName="Windows Server 2012 Datacenter" Id="d3643d60-0c42-412d-a7d6-52e6635327f6" Gvlk="48HP8-DN98B-MYWDG-T2DCC-8W83P" />
@@ -370,61 +255,47 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows Server 2012 MultiPoint Premium" Id="95fd1c83-7df5-494a-be8b-1300e1c9d1cd" Gvlk="XNH6W-2V9GX-RGJ4K-Y8X6F-QGJ2G" />
                 <SkuItem DisplayName="Windows Server 2012 MultiPoint Standard" Id="7d5486c7-e120-4771-b7f1-7b56c6d3170c" Gvlk="HM7DN-YVMH3-46JC3-XYTG7-CYQJJ" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2008 R2 A (Web and HPC)" Id="0fc6ccaf-ff0e-4fae-9d08-4370785bf7ed" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows MultiPoint Server 2010" Id="f772515c-0e87-48d5-a676-e6962c3e1195" Gvlk="736RG-XDKJK-V34PF-BHK87-J6X3K" />
                 <SkuItem DisplayName="Windows Server 2008 R2 Web" Id="a78b8bd9-8017-4df5-b86a-09f756affa7c" Gvlk="6TPJF-RBVHG-WBW2R-86QPH-6RTM4" />
                 <SkuItem DisplayName="Windows Server 2008 R2 HPC Edition" Id="cda18cf3-c196-46ad-b289-60c072869994" Gvlk="TT8MH-CG224-D3D7Q-498W2-9QCTX" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2008 R2 B (Standard and Enterprise)" Id="ca87f5b6-cd46-40c0-b06d-8ecd57a4373f" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2008 R2 Standard" Id="68531fb9-5511-4989-97be-d11a0f55633f" Gvlk="YC6KT-GKW9T-YTKYR-T4X34-R7VHC" />
                 <SkuItem DisplayName="Windows Server 2008 R2 Enterprise" Id="620e2b3d-09e7-42fd-802a-17a13652fe7a" Gvlk="489J6-VHDMP-X63PK-3K798-CPX3Y" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2008 R2 C (Datacenter and Itanium)" Id="b2ca2689-a9a8-42d7-938d-cf8e9f201958" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2008 R2 Datacenter" Id="7482e61b-c589-4b7f-8ecc-46d455ac3b87" Gvlk="74YFP-3QFB3-KQT8W-PMXWJ-7M648" />
                 <SkuItem DisplayName="Windows Server 2008 R2 Enterprise for Itanium" Id="8a26851c-1c7e-48d3-a687-fbca9b9ac16b" Gvlk="GT63C-RJFQ3-4GMB6-BRFB9-CB83V" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2008 A (Web and HPC)" Id="33e156e4-b76f-4a52-9f91-f641dd95ac48" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2008 Web" Id="ddfa9f7c-f09e-40b9-8c1a-be877a9a7f4b" Gvlk="WYR28-R7TFJ-3X2YQ-YCY4H-M249D" />
                 <SkuItem DisplayName="Windows Server 2008 Compute Cluster" Id="7afb1156-2c1d-40fc-b260-aab7442b62fe" Gvlk="RCTX3-KWVHP-BR6TB-RB6DM-6X7HP" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2008 B (Standard and Enterprise)" Id="8fe53387-3087-4447-8985-f75132215ac9" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2008 Standard" Id="ad2542d4-9154-4c6d-8a44-30f11ee96989" Gvlk="TM24T-X9RMF-VWXK6-X8JC9-BFGM2" />
                 <SkuItem DisplayName="Windows Server 2008 Standard without Hyper-V" Id="2401e3d0-c50a-4b58-87b2-7e794b7d2607" Gvlk="W7VD6-7JFBR-RX26B-YKQ3Y-6FFFJ" />
                 <SkuItem DisplayName="Windows Server 2008 Enterprise" Id="c1af4d90-d1bc-44ca-85d4-003ba33db3b9" Gvlk="YQGMW-MPWTJ-34KDK-48M3W-X4Q6V" />
                 <SkuItem DisplayName="Windows Server 2008 Enterprise without Hyper-V" Id="8198490a-add0-47b2-b3ba-316b12d647b4" Gvlk="39BXF-X8Q23-P2WWT-38T2F-G3FPG" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server 2008 C (Datacenter and Itanium)" Id="8a21fdf3-cbc5-44eb-83f3-fe284e6680a7" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows Server 2008 Datacenter" Id="68b6e220-cf09-466b-92d3-45cd964b9509" Gvlk="7M67G-PC374-GR742-YH8V4-TCBY3" />
                 <SkuItem DisplayName="Windows Server 2008 Datacenter without Hyper-V" Id="fd09ef77-5647-4eff-809c-af2b64659a45" Gvlk="22XQ2-VRXRG-P8D42-K34TD-G3QQC" />
                 <SkuItem DisplayName="Windows Server 2008 Enterprise for Itanium" Id="01ef176b-3e0d-422a-b4f8-4ea880035e8f" Gvlk="4DWFP-JF3DJ-B7DTH-78FJB-PDRHK" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows Server Next (Preview)" Id="6d5f5270-31ac-433e-b90a-39892923c657" DefaultKmsProtocol="6.0" NCountPolicy="5" IsPreview="true">
                 <SkuItem DisplayName="Windows Server Preview Datacenter" Id="ba947c44-d19d-4786-b6ae-22770bc94c54" Gvlk="9PWPK-NWF68-K33W2-MVD4B-F877B" />
                 <SkuItem DisplayName="Windows Server Preview Standard" Id="d3872724-5c08-4b1b-91f2-fc9eafed4990" Gvlk="YT83R-NYG6V-QMHXV-Q6GDY-39G99" />
                 <SkuItem DisplayName="Windows Server Preview Web" Id="e5676f13-9b66-4a1f-8b0c-43490e236202" Gvlk="TRCKN-QV3YJ-HT7RW-JVQHD-627BG" />
                 <SkuItem DisplayName="Windows Server Preview ServerHI" Id="b995b62c-eae2-40aa-afb9-111889a84ef4" Gvlk="7VX4N-3VDHQ-VYGHB-JXJVP-9QB26" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 10 ServerRdsh (Volume)" Id="cbdcb1ba-e093-4c81-a463-10775291fdf9" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Windows 10/11 Enterprise multi-session" Id="ec868e65-fadf-4759-b23e-93fe37f2cc29" Gvlk="CPWHC-NT2C7-VYW78-DHDB2-PG3GK" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 10/11 China Government" Id="7ba0bf23-d0f5-4072-91d9-d55af5a481b6" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 10/11 Enterprise G" Id="e0b2d383-d112-413f-8a80-97f373a5820c" Gvlk="YYVX9-NTFWV-6MDM3-9PT4T-4M68B" />
                 <SkuItem DisplayName="Windows 10/11 Enterprise G N" Id="e38454fb-41a4-4f59-a5dc-25080e354730" Gvlk="44RPN-FTY23-9VTTB-MP9BX-T84FV" />
             </KmsItem>
-
-            <KmsItem DisplayName="Windows 11 IoT Enterprise (Volume)" Id="00957d7f-f2a4-5a31-873e-a4246378fdbf" IsRetail="false" DefaultKmsProtocol="6.0" NCountPolicy="25">
-                <SkuItem DisplayName="Windows 11 IoT Enterprise LTSC 2021/2024" Id="dc7169df-15ec-5346-ab7d-ecb1601bc9a5" Gvlk="KBN8V-HFGQ4-MGXVD-347P6-PDQGT" />
-            </KmsItem>
-
             <KmsItem DisplayName="Windows 10/11 (Retail)" Id="e1c51358-fe3e-4203-a4a2-3b6b20c9734e" IsRetail="true" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 10/11 Home" Id="58e97c99-f377-4ef1-81d5-4ad5522b5fd8" Gvlk="TX9XD-98N7V-6WMQ6-BX7FG-H8Q99" />
                 <SkuItem DisplayName="Windows 10/11 Home N" Id="7b9e1751-a8da-4f75-9560-5fadfe3d8e38" Gvlk="3KHY7-WNT83-DGQKR-F7HPR-844BM" />
@@ -435,17 +306,14 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 10/11 Insider Preview CoreCountrySpecific" Id="5fe40dd6-cf1f-4cf2-8729-92121ac2e997" Gvlk="TFKN7-3BRDR-9H7CY-XXQQ4-YTDX2" />
                 <SkuItem DisplayName="Windows 10/11 Insider Preview CoreSingleLanguage" Id="2cc171ef-db48-4adc-af09-7c574b37f139" Gvlk="7GNT4-DJHXD-VFPJY-384GG-683YC" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 10 2019 (Volume)" Id="11b15659-e603-4cf1-9c1f-f0ec01b81888" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 10 Enterprise LTSC 2019/2021" Id="32d2fab3-e4a8-42c2-923b-4bf4fd13e6ee" Gvlk="M7XTQ-FN8P6-TTKYV-9D4CC-J462D" />
                 <SkuItem DisplayName="Windows 10 Enterprise LTSC 2019/2021 N" Id="7103a333-b8c8-49cc-93ce-d37c09687f92" Gvlk="92NFX-8DJQP-P6BBQ-THF9C-7CG2H" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 10 2016 (Volume)" Id="969fe3c0-a3ec-491a-9f25-423605deb365" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 10 Enterprise 2016 LTSB" Id="2d5a5a60-3040-48bf-beb0-fcd770c20ce0" Gvlk="DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ" />
                 <SkuItem DisplayName="Windows 10 Enterprise 2016 LTSB N" Id="9f776d83-7156-45b2-8a5c-359b9c9f22a3" Gvlk="QFFDN-GRT3P-VKWWX-X7T3R-8B639" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 10/11 2015 (Volume)" Id="58e2134f-8e11-4d17-9cb2-91069c151148" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 10 Enterprise 2015 LTSB" Id="7b51a46c-0c04-4e8f-9af4-8496cca90d5e" Gvlk="WNMTR-4C88C-JK8YV-HQ7T2-76DF9" />
                 <SkuItem DisplayName="Windows 10 Enterprise 2015 LTSB N" Id="87b838b7-41b6-4590-8318-5797951d8529" Gvlk="2F77B-TNFGY-69QQF-B8YKP-D69TJ" />
@@ -473,10 +341,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 10/11 Insider Preview Professional" Id="ff808201-fec6-4fd4-ae16-abbddade5706" Gvlk="R7NPP-B8F2Y-9289P-922Y4-3DB9B" />
                 <SkuItem DisplayName="Windows 10/11 Insider Preview ProfessionalN" Id="34260150-69ac-49a3-8a0d-4a403ab55763" Gvlk="2QW8H-7RNHB-MPWPJ-8RJDT-V6D27" />
             </KmsItem>
-
-            <KmsItem DisplayName="Windows 10 Unknown (Volume)" Id="d27cd636-1962-44e9-8b4f-27b6c23efb85" DefaultKmsProtocol="6.0" NCountPolicy="25">
-            </KmsItem>
-
             <KmsItem DisplayName="Windows 8.1 (Volume)" Id="cb8fc780-2c05-495a-9710-85afffc904d7" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 8.1 Enterprise" Id="81671aaf-79d1-4eb1-b004-8cbbe173afea" Gvlk="MHF9N-XY6XB-WVXMC-BTDCT-MKKG7" />
                 <SkuItem DisplayName="Windows 8.1 Enterprise N" Id="113e705c-fa49-48a4-beea-7dd879b46b14" Gvlk="TT4HM-HN7YT-62K67-RGRQJ-JFFXW" />
@@ -490,7 +354,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 8.1 Core Connected Country Specific" Id="ba998212-460a-44db-bfb5-71bf09d1c68b" Gvlk="R962J-37N87-9VVK2-WJ74P-XTMHR" IsGeneratedGvlk="true" />
                 <SkuItem DisplayName="Windows 8.1 Core Connected Single Language" Id="b8f5e3a3-ed33-4608-81e1-37d6c9dcfd9c" Gvlk="KF37N-VDV38-GRRTV-XH8X6-6F3BB" IsGeneratedGvlk="true" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 8.1 (Retail)" Id="6d646890-3606-461a-86ab-598bb84ace82" IsRetail="true" DefaultKmsProtocol="6.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 8.1 Core" Id="fe1c3238-432a-43a1-8e25-97e7d1ef10f3" Gvlk="M9Q9P-WNJJT-6PXPY-DWX8H-6XWKK" />
                 <SkuItem DisplayName="Windows 8.1 Core N" Id="78558a64-dc19-43fe-a0d0-8075b2a370a3" Gvlk="7B9N3-D94CG-YTVHR-QBPX3-RJP64" />
@@ -501,7 +364,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 8.1 Professional Student" Id="e58d87b5-8126-4580-80fb-861b22f79296" Gvlk="MX3RK-9HNGX-K3QKC-6PJ3F-W8D7B" IsGeneratedGvlk="true" />
                 <SkuItem DisplayName="Windows 8.1 Professional Student N" Id="cab491c7-a918-4f60-b502-dab75e334f40" Gvlk="TNFGH-2R6PB-8XM3K-QYHX2-J4296" IsGeneratedGvlk="true" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 8 (Volume)" Id="3c40b358-5948-45af-923b-53d21fcc7e79" DefaultKmsProtocol="5.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 8 Enterprise" Id="458e1bec-837a-45f6-b9d5-925ed5d299de" Gvlk="32JNW-9KQ84-P47T8-D8GGY-CWCK7" />
                 <SkuItem DisplayName="Windows 8 Enterprise N" Id="e14997e7-800a-4cf7-ad10-de4b45b578db" Gvlk="JMNMF-RHW7P-DMY6X-RF3DR-X2BQT" />
@@ -511,7 +373,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 8 Embedded Industry Professional" Id="10018baf-ce21-4060-80bd-47fe74ed4dab" Gvlk="RYXVT-BNQG7-VD29F-DBMRY-HT73M" />
                 <SkuItem DisplayName="Windows 8 Embedded POSReady [Beta]" Id="5ca3e488-dbae-4fae-8282-a98fbcd21126" Gvlk="TF364-NP4XR-FRM29-THMP6-D3T4F" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 8 (Retail)" Id="bbb97b3b-8ca4-4a28-9717-89fabd42c4ac" IsRetail="true" DefaultKmsProtocol="5.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 8 Core" Id="c04ed6bf-55c8-4b47-9f8e-5a1f31ceee60" Gvlk="BN3D2-R7TKB-3YPBD-8DRP2-27GG4" />
                 <SkuItem DisplayName="Windows 8 Core N" Id="197390a0-65f6-4a95-bdc4-55d58a3b0253" Gvlk="8N2M2-HWPGY-7PGT9-HGDD8-GVGGY" />
@@ -520,7 +381,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 8 Core ARM" Id="af35d7b7-5035-4b63-8972-f0b747b9f4dc" Gvlk="DXHJF-N9KQX-MFPVR-GHGQK-Y7RKV" />
                 <SkuItem DisplayName="Windows 8 Professional WMC" Id="a00018a3-f20f-4632-bf7c-8daa5351c914" Gvlk="GNBB8-YVD74-QJHX6-27H4K-8QHDG" />
             </KmsItem>
-
             <KmsItem DisplayName="Windows 7" Id="7fde5219-fbfa-484a-82c9-34d1ad53e856" DefaultKmsProtocol="4.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows 7 Enterprise" Id="ae2ee509-1b34-41c0-acb7-6d4650168915" Gvlk="33PXH-7Y6KF-2VJC9-XBBR8-HVTHH" />
                 <SkuItem DisplayName="Windows 7 Enterprise E" Id="46bbed08-9c7b-48fc-a614-95250573f4ea" Gvlk="C29WB-22CC8-VJ326-GHFJW-H9DH4" />
@@ -532,18 +392,14 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Windows 7 Embedded POSReady" Id="db537896-376f-48ae-a492-53d0547773d0" Gvlk="YBYF6-BHCR3-JPKRB-CDW7B-F9BK4" />
                 <SkuItem DisplayName="Windows 7 Embedded Standard" Id="e1a8296a-db37-44d1-8cce-7bc961d59c54" Gvlk="XGY72-BRBBT-FF8MH-2GG8H-W7KCW"/>
             </KmsItem>
-
             <KmsItem DisplayName="Windows Vista" Id="212a64dc-43b1-4d3d-a30c-2fc69d2095c6" DefaultKmsProtocol="4.0" NCountPolicy="25">
                 <SkuItem DisplayName="Windows Vista Business" Id="4f3d1606-3fea-4c01-be3c-8d671c401e3b" Gvlk="YFKBB-PQJJV-G996G-VWGXY-2V3X8" />
                 <SkuItem DisplayName="Windows Vista Business N" Id="2c682dc2-8b68-4f63-a165-ae291d4cf138" Gvlk="HMBQG-8H2RH-C77VX-27R82-VMQBT" />
                 <SkuItem DisplayName="Windows Vista Enterprise" Id="cfd8ff08-c0d7-452b-9f60-ef5c70c32094" Gvlk="VKK3X-68KWM-X2YGT-QR4M6-4BWMV" />
                 <SkuItem DisplayName="Windows Vista Enterprise N" Id="d4f54950-26f2-4fb4-ba21-ffab16afcade" Gvlk="VTC42-BM838-43QHV-84HX6-XJXKV" />
             </KmsItem>
-
         </AppItem>
-
         <AppItem DisplayName="Office 14 (2010)" VlmcsdIndex="1" MinActiveClients="10" Id="59a52881-a989-479d-af46-f275c6370663">
-            
             <KmsItem DisplayName="Office 2010" Id="e85af946-2e25-47b7-83e1-bebcebeac611" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="4.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access 2010" Id="8ce7e872-188c-4b98-9d90-f8f90b7aad02" Gvlk="V7Y44-9T38C-R2VJK-666HK-T7DDX" />
                 <SkuItem DisplayName="Office Excel 2010" Id="cee5d470-6e3b-4fcc-8c2b-d17428568a9f" Gvlk="H62QG-HXVKF-PP4HP-66KMR-CW9BM" />
@@ -566,9 +422,7 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Word 2010" Id="2d0882e7-a4e7-423b-8ccc-70d91e0158b1" Gvlk="HVHB3-C6FV7-KQX9W-YQG79-CRY7T" />
             </KmsItem>
         </AppItem>
-
         <AppItem DisplayName="Office 2013 / 2016 / 2019 / LTSC 2021 / LTSC 2024" VlmcsdIndex="5" MinActiveClients="10" Id="0ff1ce15-a989-479d-af46-f275c6370663">
-
             <KmsItem DisplayName="Office 2013" Id="e6a6f1bf-9d40-40c3-aa9f-c77ba21578c0" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="5.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access 2013" Id="6ee7622c-18d8-4005-9fb7-92db644a279b" Gvlk="NG2JY-H4JBT-HQXYP-78QH9-4JM2D" />
                 <SkuItem DisplayName="Office Excel 2013" Id="f7461d52-7c2b-43b2-8744-ea958e0bd09a" Gvlk="VGPNG-Y7HQW-9RHP7-TKPV3-BG7GB" />
@@ -587,7 +441,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Visio Standard 2013" Id="ac4efaf0-f81f-4f61-bdf7-ea32b02ab117" Gvlk="J484Y-4NKBF-W2HMG-DBMJC-PGWR7" />
                 <SkuItem DisplayName="Office Word 2013" Id="d9f5b1c6-5386-495a-88f9-9ad6b41ac9b3" Gvlk="6Q7VD-NX8JD-WJ2VH-88V73-4GBJ7" />
             </KmsItem>
-
             <KmsItem DisplayName="Office 2013 (Pre-release)" Id="aa4c7968-b9da-4680-92b6-acb25e2f866c" IsPreview="true" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="5.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access 2013 (Pre-Release)" Id="44b538e2-fb34-4732-81e4-644c17d2e746" Gvlk="DJBH8-RGN7Q-836KD-DMP3M-DM9MF" />
                 <SkuItem DisplayName="Office Excel 2013 (Pre-Release)" Id="9373bfa0-97b3-4587-ab73-30934461d55c" Gvlk="Q3BNP-3WXDT-GG8HF-24KMW-HMDBK" />
@@ -606,7 +459,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Visio Standard 2013 (Pre-Release)" Id="7012cc81-8887-42e9-b17d-4e5e42760f0d" Gvlk="9MKNF-J9XQ6-JV4XB-FJQPY-43F43" />
                 <SkuItem DisplayName="Office Word 2013 (Pre-Release)" Id="de9c7eb6-5a85-420d-9703-fff11bdd4d43" Gvlk="JBGD4-3JNG7-JWWGV-CR6TP-DC62Q" />
             </KmsItem>
-
             <KmsItem DisplayName="Office 2016" Id="85b5f61b-320b-4be3-814a-b76b2bfafc82" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access 2016" Id="67c0fc0c-deba-401b-bf8b-9c8ad8395804" Gvlk="GNH9Y-D2J4T-FJHGG-QRVH7-QPFDW" />
                 <SkuItem DisplayName="Office Excel 2016" Id="c3e65d36-141f-4d2f-a303-a842ee756a29" Gvlk="9C2PK-NWTVB-JMPW8-BFT28-7FTBF" />
@@ -629,7 +481,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Visio Standard 2016 C2R" Id="361fe620-64f4-41b5-ba77-84f8e079b1f7" Gvlk="NY48V-PPYYH-3F4PX-XJRKJ-W4423" />
                 <SkuItem DisplayName="Office Word 2016" Id="bb11badf-d8aa-470e-9311-20eaf80fe5cc" Gvlk="WXY84-JN2Q9-RBCCQ-3Q3J3-3PFJ6" />
             </KmsItem>
-
             <KmsItem DisplayName="Office 2019" Id="617d9eb1-ef36-4f82-86e0-a65ae07b96c6" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access 2019" Id="9e9bceeb-e736-4f26-88de-763f87dcc485" Gvlk="9N9PT-27V4Y-VJ2PD-YXFMF-YTFQT"/>
                 <SkuItem DisplayName="Office Excel 2019" Id="237854e9-79fc-4497-a0c1-a70969691c6b" Gvlk="TMJWT-YYNMB-3BKTF-644FC-RVXBD" />
@@ -648,7 +499,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Project Pro 2019 Preview" Id="fc7c4d0c-2e85-4bb9-afd4-01ed1476b5e9" Gvlk="XM2V9-DN9HH-QB449-XDGKC-W2RMW" />
                 <SkuItem DisplayName="Office Visio Pro 2019 Preview" Id="500f6619-ef93-4b75-bcb4-82819998a3ca" Gvlk="N2CG9-YD3YK-936X4-3WR82-Q3X4H" />
             </KmsItem>
-
             <KmsItem DisplayName="Office 2021" Id="86d50b16-4808-41af-b83b-b338274318b2" IsPreview="false" CanMapToDefaultCsvlk="false" DefaultKmsProtocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access LTSC 2021" Id="1fe429d8-3fa7-4a39-b6f0-03dded42fe14" Gvlk="WM8YG-YNGDD-4JHDC-PG3F4-FC4T4" />
                 <SkuItem DisplayName="Office Excel LTSC 2021" Id="ea71effc-69f1-4925-9991-2f5e319bbc24" Gvlk="NWG3X-87C9K-TC7YY-BC2G7-G6RVC" />
@@ -667,7 +517,6 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Project Pro 2021 Preview" Id="76093b1b-7057-49d7-b970-638ebcbfd873" Gvlk="WDNBY-PCYFY-9WP6G-BXVXM-92HDV" />
                 <SkuItem DisplayName="Office Visio Pro 2021 Preview" Id="a3b44174-2451-4cd6-b25f-66638bfb9046" Gvlk="2XYX7-NXXBK-9CK7W-K2TKW-JFJ7G" />
             </KmsItem>
-
             <KmsItem DisplayName="Office 2024" Id="1b4db7eb-4057-5ddf-91e0-36dec72071f5" IsPreview="false" CanMapToDefaultCsvlk="false" DefaultKmsprotocol="6.0" NCountPolicy="5">
                 <SkuItem DisplayName="Office Access LTSC 2024" Id="72e9faa7-ead1-4f3d-9f6e-3abc090a81d7" Gvlk="82FTR-NCHR7-W3944-MGRHM-JMCWD" />
                 <SkuItem DisplayName="Office Excel LTSC 2024" Id="cbbba2c3-0ff5-4558-846a-043ef9d78559" Gvlk="F4DYN-89BP2-WQTWJ-GR8YC-CKGJG" />
@@ -685,10 +534,7 @@ You can read them using pkeyconfig-gui off MDL forums or Product Key Config. Rea
                 <SkuItem DisplayName="Office Project Pro 2024 Preview" Id="aaea0dc8-78e1-4343-9f25-b69b83dd1bce" Gvlk="D9GTG-NP7DV-T6JP3-B6B62-JB89R" />
                 <SkuItem DisplayName="Office Visio Pro 2024 Preview" Id="4ab4d849-aabc-43fb-87ee-3aed02518891" Gvlk="YW66X-NH62M-G6YFP-B7KCT-WXGKQ" />
             </KmsItem>
-
         </AppItem>
-
     </AppItems>
-
 </KmsData>
 
