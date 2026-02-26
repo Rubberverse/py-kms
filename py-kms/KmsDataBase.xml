@@ -29,7 +29,7 @@
         <WinBuild BuildNumber="20348" ReleaseDate="2021-08-18T00:00:00Z" DisplayName="Windows Server 2022 (21H2)" PlatformId="3612" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
         <WinBuild BuildNumber="22000" ReleaseDate="2021-06-24T00:00:00Z" DisplayName="Windows 11 21H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="22621" ReleaseDate="2022-05-11T00:00:00Z" DisplayName="Windows 11 22H2" PlatformId="3612" UsesNDR64="true"/>
-        <WinBuild BuildNumber="22631" ReleaseDate="2023-10-31:00:00:00Z" DisplayName="Windows 11 23H2" PlatformId="3612" UsesNDR64="true"/>
+        <WinBuild BuildNumber="22631" ReleaseDate="2023-10-31T00:00:00Z" DisplayName="Windows 11 23H2" PlatformId="3612" UsesNDR64="true"/>
         <WinBuild BuildNumber="26100" ReleaseDate="2024-11-01T00:00:00Z" DisplayName="Windows 11 24H2 / Windows Server 2025" PlatformId="3612" UseForEpid="true" MayBeServer="true" UsesNDR64="true"/>
         <WinBuild BuildNumber="26200" ReleaseDate="2025-09-30T00:00:00Z" DisplayName="Windows 11 25H2" PlatformId="3612" UsesNDR64="true" />
         <WinBuild BuildNumber="28000" ReleaseDate="2026-02-10T00:00:00Z" DisplayName="Windows 11 26H1" PlatformId="3612" UsesNDR64="true" />
@@ -539,3 +539,4 @@
         </AppItem>
     </AppItems>
 </KmsData>
+
