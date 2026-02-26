@@ -27,7 +27,9 @@ def epidGenerator(kmsId, version, lcid):
                 except IndexError:
                         # fallback to Windows Server 2019 parameters.
                         pkeys.append( ('206', '551000000', '570999999', '[0,1,2]') )   
-                                
+                except KeyError:
+                        # ignore malformed/incomplete entries
+                        pass
         pkey = random.choice(pkeys)
         GroupId, MinKeyId, MaxKeyId, Invalid = int(pkey[0]), int(pkey[1]), int(pkey[2]), literal_eval(pkey[3])
 
