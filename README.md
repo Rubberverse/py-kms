@@ -2,7 +2,7 @@
 
 Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger changes *eventually* (I'm busy with other things and that day may never come. Oh well.)
 
-![repo-size](https://img.shields.io/github/repo-size/Rubberverse/py-kms) ![last-commit](https://img.shields.io/github/last-commit/Rubberverse/py-kms/next)
+![repo-size](https://img.shields.io/github/repo-size/Rubberverse/qor-kms) ![last-commit](https://img.shields.io/github/last-commit/Rubberverse/qor-kms/next)
 
 ## Mandatory warning (because some of you are reckless)
 
@@ -262,5 +262,6 @@ podman build -f Dockerfile -t localhost/py-kms:latest
 ```
 
 If all goes well, it should build successfully. Now you can reference it in your Quadlet or Docker Compose and deploy it! Just use `localhost/py-kms:latest` as your Image registry entry. `Image=localhost/py-kms:latest`
+
 
 
