@@ -216,7 +216,7 @@ SystemCallArchitectures=native
 MemoryDenyWriteExecute=false
 
 [Container]
-Image=ghcr.io/rubberverse/qor-kms:latest-alpine
+Image=ghcr.io/rubberverse/qor-kms:latest
 ContainerName=rvs-kms
 Environment=KMS_IP=0.0.0.0
 # Volumes + shim
@@ -262,4 +262,5 @@ podman build -f Dockerfile -t localhost/py-kms:latest
 ```
 
 If all goes well, it should build successfully. Now you can reference it in your Quadlet or Docker Compose and deploy it! Just use `localhost/py-kms:latest` as your Image registry entry. `Image=localhost/py-kms:latest`
+
 
