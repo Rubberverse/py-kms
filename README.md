@@ -229,7 +229,7 @@ ReadOnly=true
 # Network
 # SRV _vlmcs._tcp.<domain>
 PublishPort=1688:1688/tcp
-# User
+# User - remove this line if you're not running rootfully! (it will screw up rootfs)
 UserNS=auto:size=1003
 ```
 
@@ -262,6 +262,7 @@ podman build -f Dockerfile -t localhost/py-kms:latest
 ```
 
 If all goes well, it should build successfully. Now you can reference it in your Quadlet or Docker Compose and deploy it! Just use `localhost/py-kms:latest` as your Image registry entry. `Image=localhost/py-kms:latest`
+
 
 
 
