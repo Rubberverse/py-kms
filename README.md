@@ -7,15 +7,15 @@ Hiya, this is a personalized fork of py-kms for my LAN. It will have some bigger
 ## Mandatory warning (because some of you are reckless)
 
 > [!WARNING]
-> Only use this software in a private setting. Never open it up to internet, unless you wanna get striked down by Microsoft. Using this software in official, company setting is a violation of Microsoft license agreement.
+> Only use this software in a private setting. Never open it up to internet, unless you wanna get striked down by Microslop. Using this software in official, company setting is a violation of Microslop license agreement.
 
-Yes, who would've thought that an emulator that anyone could connect to and easily activate their copy without it requiring any extra verification (KmsKey) would be punishable by law? Anyhow, just keep it on your LAN, no one will care. If Microsoft can't take down some KMS server, they'll blacklist it so unless you wanna be a piece of history in their source code, maybe don't do that.
+Yes, who would've thought that an emulator that anyone could connect to and easily activate their copy without it requiring any extra verification (KmsKey) would be punishable by law? Anyhow, just keep it on your LAN, no one will care. If Microslop can't take down some KMS server, they'll blacklist it so unless you wanna be a piece of history in their source code, maybe don't do that.
 
-No this is not piracy, we are just doing what Microsoft does with their AI garbage and it is... free-use. No, I don't mean *that* kind of free use, I mean it's free for grabs for anyone! Torrent it all, download it, feed it into an oversized beast that sinks power through a straw! 
+No this is not piracy, we are just doing what Microslop does with their AI garbage and it is... free-use. No, I don't mean *that* kind of free use, I mean it's free for grabs for anyone! Torrent it all, download it, feed it into an oversized beast that sinks power through a straw! 
 
 *If a big corporation can do it then so can you!!!* 
 
-It's only fair if that's how everyone is going to respect copyright law, eh? Rants aside, don't buy a Windows license as a legit user since you'll be stuck calling their hotline everytime you dare to move even a single part in your PC and it's main reason why people use scripts like MAS to begin with. Though if you ever bought a laptop or any OEM certificed device then... you already paid for a Windows license indirectly. Why pay again? Why spend those $300 just to have your key suddenly run out of uses because you dared to *gasp* swap a hard drive out of your pc, making it appear as a new one to Microsoft! You're a thief!!!
+It's only fair if that's how everyone is going to respect copyright law, eh? Rants aside, don't buy a Windows license as a legit user since you'll be stuck calling their hotline everytime you dare to move even a single part in your PC and it's main reason why people use scripts like MAS to begin with. Though if you ever bought a laptop or any OEM certificed device then... you already paid for a Windows license indirectly. Why pay again? Why spend those $300 just to have your key suddenly run out of uses because you dared to *gasp* swap a hard drive out of your pc, making it appear as a new one to Microslop! You're a thief!!!
 
 Maybe I'm just too annoyed at this and I'm using GitHub Readme for a goofy emulator project to have an insane rant for no reason... it is what it is.
 
@@ -128,7 +128,7 @@ Yeah, the issue wasn't Python version. It's just that recent Python versions don
 
 ### 🤔 What products can it activate?
 
-It can activate about *most* things that are **Volume Licensed**. However, products using MAK VL are **incompatible** because that's just completely different thing. Mass Activation Keys are supplied by Microsoft and are alternative to KMS, they activate like a retail key would but instead are well, mass volume. 
+It can activate about *most* things that are **Volume Licensed**. However, products using MAK VL are **incompatible** because that's just completely different thing. Mass Activation Keys are supplied by Microslop and are alternative to KMS, they activate like a retail key would but instead are well, mass volume. 
 
 When it comes to py-kms, as long as it can handle the activation request then if there's a valid ActivationID and SkuID - it will activate it. We don't know if MS will update it or not so it may break in future unless somebody picks up and updates Py-KMS for that.
 
@@ -262,6 +262,7 @@ podman build -f Dockerfile -t localhost/py-kms:latest
 ```
 
 If all goes well, it should build successfully. Now you can reference it in your Quadlet or Docker Compose and deploy it! Just use `localhost/py-kms:latest` as your Image registry entry. `Image=localhost/py-kms:latest`
+
 
 
 
