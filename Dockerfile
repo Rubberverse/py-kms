@@ -20,7 +20,8 @@ ENV IP=0.0.0.0 \
     LOGFILE=STDOUT \
     LOGSIZE="" \
     TZ=Europe/Warsaw \
-    WEBUI=1
+    WEBUI=1 \
+    PYTHONUNBUFFERED=1
 
 RUN mkdir -p /app
 COPY ./requirements.txt /app
